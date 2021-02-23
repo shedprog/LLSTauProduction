@@ -3,6 +3,7 @@
 
 The following setups are taken from:
 https://cms-pdmv.cern.ch/mcm/requests?prepid=SUS-RunIIFall18GS-00022&page=0&shown=127
+
 Thanks https://github.com/lucaswiens for the help.
 
 The following soft is supposed to be run at lxplus.cern.ch. To setup environment and generate config files:
@@ -17,5 +18,6 @@ The following soft is supposed to be run at lxplus.cern.ch. To setup environment
 
 To submit PREMIX
 ```sh
-crab submit -c
+> cd python
+> crab submit -c crab_cfg_step_1.py
 ```

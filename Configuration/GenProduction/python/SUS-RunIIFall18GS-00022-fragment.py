@@ -90,9 +90,9 @@ hBarCinGeVmm = 1.973269788e-13
 # mstaus = [90, 100, 125, 150, 175, 200, 250, 300, 350, 400, 450, 500]
 # mlsps = [50,100]
 
-gevWidth = [0.01, 10, 100, 200, 500, 1000]
-mstaus = [90]
-mlsps = [50]
+gevWidth = [0.01, 50, 100, 250, 500, 750, 1000]
+mstaus = [100]
+mlsps = [1]
 
 def matchParams(mass):
     if mass < 99: return 80,0.63
@@ -107,7 +107,7 @@ def matchParams(mass):
     else: return 80,0.45
 
 # Number of events in thousands per mass point
-nevt = 50
+nevt = 1000
 
 
 # -------------------------------

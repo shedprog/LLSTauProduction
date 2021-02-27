@@ -16,8 +16,30 @@ The following soft is supposed to be run at lxplus.cern.ch. To setup environment
 > ./CreateDrivers.sh
 ```
 
-To submit PREMIX
+Before running crab source CMSSW env:
 ```sh
-> cd python
+> cd CMSSW_10_2_16_patch2/src
+> cmsenv
+```
+
+To submit RAWSIM step (setup crab_cfg_step_1.py):
+```sh
 > crab submit -c crab_cfg_step_1.py
 ```
+
+To submit PREMIXRAW step (setup crab_cfg_step_2.py):
+```sh
+> crab submit -c crab_cfg_step_2.py
+```
+
+To submit AODSIM step (setup crab_cfg_step_3.py):
+```sh
+> crab submit -c crab_cfg_step_3.py
+```
+
+To submit MINIAODSIM step (setup crab_cfg_step_4.py):
+```sh
+> crab submit -c crab_cfg_step_4.py
+```
+
+Full commands available at LLSTauProduction/test

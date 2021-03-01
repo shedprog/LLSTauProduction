@@ -12,7 +12,7 @@ config.JobType.pluginName = 'Analysis'
 config.JobType.psetName = 'SUS-RunIIAutumn18DRPremix-00225_1_cfg.py'
 
 config.JobType.maxJobRuntimeMin = 9*60
-config.JobType.maxMemoryMB = 3000
+config.JobType.maxMemoryMB = 4000
 
 config.section_("Data")
 
@@ -28,7 +28,7 @@ config.Data.inputDBS = 'phys03'
 
 
 config.Data.splitting = 'FileBased'#'Automatic' #'EventBased'#'EventAwareLumiBased'
-config.Data.unitsPerJob = 2
+config.Data.unitsPerJob = 1
 #config.Data.totalUnits = 1#number of files
 config.Data.outLFNDirBase = '/store/user/myshched/SUS-RunIIFall18GS-production/SUS-RunIIFall18GS_ctau0p01-1000mm_mstau90_mlsp50-PREMIXRAW'
 config.Data.publication = True

@@ -90,8 +90,9 @@ hBarCinGeVmm = 1.973269788e-13
 # mstaus = [90, 100, 125, 150, 175, 200, 250, 300, 350, 400, 450, 500]
 # mlsps = [50,100]
 
-gevWidth = [0.01, 50, 100, 250, 500, 750, 1000]
-mstaus = [100]
+# gevWidth = [0.01, 50, 100, 250, 500, 750, 1000]
+gevWidth = [1000]
+mstaus = [90]
 mlsps = [1]
 
 def matchParams(mass):
@@ -107,7 +108,7 @@ def matchParams(mass):
     else: return 80,0.45
 
 # Number of events in thousands per mass point
-nevt = 1000
+nevt = 50
 
 
 # -------------------------------
@@ -132,6 +133,14 @@ for ctau0 in gevWidth:
     slhatable = baseSLHATable.replace('%MSTAU%','%e' % mstau)
     slhatable = slhatable.replace('%MLSP%','%e' % mlsp)
     slhatable = slhatable.replace('%CTAU%','%e' % ctau)
+
+    FLAVOR = 'stau'
+    COM_ENERGY = 13000. 
+    MASS_POINT = mstau  # GeV
+    PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
+    PARTICLE_FILE = 'particle_stau.txt'
+    SLHA_FILE = 'dummy.slha'
+    USE_REGGE = False
 
     basePythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
@@ -159,7 +168,7 @@ for ctau0 in gevWidth:
 
 
     basePythiaParameters.pythia8CommonSettings.extend(['1000015:tau0 = %e' % ctau0])
-    basePythiaParameters.pythia8CommonSettings.extend(['ParticleDecays:tau0Max = 1000.1'])
+    basePythiaParameters.pythia8CommonSettings.extend(['ParticleDecays:tau0Max = 3000.1'])
     basePythiaParameters.pythia8CommonSettings.extend(['LesHouches:setLifetime = 2'])
 
     generator.RandomizedParameters.append(
@@ -171,3 +180,10 @@ for ctau0 in gevWidth:
             PythiaParameters = basePythiaParameters,
         ),
     )
+
+    generator.hscpFlavor = cms.untracked.string(FLAVOR)
+    generator.massPoint = cms.untracked.int32(MASS_POINT)
+    generator.SLHAFileForPythia8 = cms.untracked.string(SLHA_FILE)
+    generator.processFile = cms.untracked.string(PROCESS_FILE)
+    generator.particleFile = cms.untracked.string(PARTICLE_FILE)
+    generator.useregge = cms.bool(USE_REGGE)

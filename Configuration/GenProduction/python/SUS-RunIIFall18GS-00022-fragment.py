@@ -5,7 +5,6 @@ from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 
 import math
 
-
 baseSLHATable="""
 BLOCK MASS  # Mass Spectrum
 # PDG code           mass       particle
@@ -92,7 +91,7 @@ hBarCinGeVmm = 1.973269788e-13
 
 # gevWidth = [0.01, 50, 100, 250, 500, 750, 1000]
 gevWidth = [1000]
-mstaus = [90]
+mstaus = [100]
 mlsps = [1]
 
 def matchParams(mass):
@@ -138,7 +137,7 @@ for ctau0 in gevWidth:
     COM_ENERGY = 13000. 
     MASS_POINT = mstau  # GeV
     PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
-    PARTICLE_FILE = 'particle_stau.txt'
+    PARTICLE_FILE = ("particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(mstau, mlsp, ctau0))
     SLHA_FILE = 'dummy.slha'
     USE_REGGE = False
 
@@ -187,3 +186,4 @@ for ctau0 in gevWidth:
     generator.processFile = cms.untracked.string(PROCESS_FILE)
     generator.particleFile = cms.untracked.string(PARTICLE_FILE)
     generator.useregge = cms.bool(USE_REGGE)
+    

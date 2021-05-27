@@ -1,11 +1,6 @@
 
 # Production of MC for Long-Lived STau 2018
 
-The following setups are taken from:
-https://cms-pdmv.cern.ch/mcm/requests?prepid=SUS-RunIIFall18GS-00022&page=0&shown=127
-
-Thanks https://github.com/lucaswiens for the help.
-
 The following soft is supposed to be run at lxplus.cern.ch. To setup environment and generate config files:
 ```sh
 > cmssw-cc6
@@ -22,24 +17,22 @@ Before running crab source CMSSW env:
 > cmsenv
 ```
 
-To submit RAWSIM step (setup crab_cfg_step_1.py):
+To generate ParticleFiles you need to hardcode requiered mstau, mlsp, ctau parameters inside `script/CreatePartFiles.py` and execute
 ```sh
-> crab submit -c crab_cfg_step_1.py
+> python script/CreatePartFiles.py
 ```
 
-To submit PREMIXRAW step (setup crab_cfg_step_2.py):
+For the simplicity and to save disk space the production is split only on two steps, generation of RAWSIM data (to test gen-level info) and generation of MiniAOD files.
+
+To submit RAWSIM and MiniAOD steps:
 ```sh
-> crab submit -c crab_cfg_step_2.py
+> crab submit -c crab_updated_cfg_step_1.py
+> crab submit -c crab_updated_cfg_step_2.py
 ```
 
-To submit AODSIM step (setup crab_cfg_step_3.py):
-```sh
-> crab submit -c crab_cfg_step_3.py
-```
+Full testing commands are available at LLSTauProduction/test
 
-To submit MINIAODSIM step (setup crab_cfg_step_4.py):
-```sh
-> crab submit -c crab_cfg_step_4.py
-```
-
-Full commands available at LLSTauProduction/test
+The following setups are inherited from:
+- https://cms-pdmv.cern.ch/mcm/requests?prepid=SUS-RunIIFall18GS-00022&page=0&shown=127 
+- https://cms-pdmv.cern.ch/mcm/requests?page=0&prepid=\*SUS-RunIISummer15GS-00239\*&shown=1572991
+- https://github.com/lucaswiens

@@ -1,0 +1,10 @@
+
+BLOCK MASS
+#  PDG code   mass   particle
+   1000015    2.000000e+02  # ~tau_1
+   1000022    9.000000e+01  # ~chi_10
+Block
+# DECAY TABLE
+DECAY    1000015  1.973270e-14 # tau + ~chi_10
+#          BR          NDA       ID1     ID2
+           1.0         2          15    1000022

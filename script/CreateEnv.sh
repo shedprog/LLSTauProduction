@@ -1,9 +1,12 @@
 #!/bin/bash
 
-ENV_PATH=/afs/cern.ch/user/m/myshched/STauGENProduction
+# ENV_PATH=/afs/cern.ch/user/m/myshched/STauGENProduction
 
 ABS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OUTDIR=${ABS_PATH}/..
+
+ENV_PATH=${ABS_PATH}/../envs
+mkdir -p ${ENV_PATH}
 
 echo "ENV_PATH: " $ENV_PATH
 echo "OUTDIR: " $OUTDIR
@@ -18,6 +21,9 @@ else
   cd ${ENV_PATH}
   scram p CMSSW CMSSW_10_2_16_patch2
 fi
+
+# Copy test particle files
+cp ${OUTDIR}/Configuration/ParticleFiles/*.txt ${ENV_PATH}/CMSSW_10_2_16_patch2/src/
 
 cd ${ENV_PATH}/CMSSW_10_2_16_patch2/src
 mkdir -p ${ENV_PATH}/CMSSW_10_2_16_patch2/src/Configuration/GenProduction/python

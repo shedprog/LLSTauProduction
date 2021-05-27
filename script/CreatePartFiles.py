@@ -2,7 +2,7 @@ import os
 from itertools import product
 
 root_dir = os.path.dirname(os.path.abspath(__file__))
-directory_out = root_dir+'/../particle_files'
+directory_out = root_dir+'/../Configuration/ParticleFiles'
 
 try:
     os.stat(directory_out)
@@ -25,7 +25,7 @@ hBarCinGeVmm = 1.973269788e-13
 
 mstau_list = [90, 100, 150, 200]
 mlsp_list  = [1, 90]
-ctau0_list  = [100, 500, 1000]
+ctau0_list  = [1, 10, 50, 100, 500, 750, 1000]
 
 grid = list(product(*[mstau_list, mlsp_list, ctau0_list]))
 print "create:",len(grid),"files"

@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction/script/../python/SUS-RunIIAutumn18MiniAOD-00351_1_cfg.py --eventcontent MINIAODSIM --customise Configuration/DataProcessing/Utils.addMonitoring --datatier MINIAODSIM --fileout file:SUS-RunIIAutumn18MiniAOD-00351.root --conditions 102X_upgrade2018_realistic_v15 --step PAT --geometry DB:Extended --filein file:SUS-RunIIAutumn18DRPremix-00225.root --era Run2_2018 --runUnscheduled --no_exec --mc
+# with command line options: --python_filename /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction/script/../python/SUS-RunIIAutumn18MiniAOD-00351_1_cfg.py --eventcontent MINIAODSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise SimG4Core/CustomPhysics/GenPlusSimParticles_cfi.customizeProduce,SimG4Core/CustomPhysics/GenPlusSimParticles_cfi.customizeKeep,Configuration/DataProcessing/Utils.addMonitoring --datatier MINIAODSIM --fileout file:SUS-RunIIAutumn18MiniAOD-00351.root --conditions 102X_upgrade2018_realistic_v15 --step PAT --geometry DB:Extended --filein file:SUS-RunIIAutumn18DRPremix-00225.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 100
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
@@ -23,7 +23,7 @@ process.load('Configuration.StandardSequences.EndOfProcess_cff')
 process.load('Configuration.StandardSequences.FrontierConditions_GlobalTag_cff')
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(1)
+    input = cms.untracked.int32(100)
 )
 
 # Input source
@@ -38,7 +38,7 @@ process.options = cms.untracked.PSet(
 
 # Production Info
 process.configurationMetadata = cms.untracked.PSet(
-    annotation = cms.untracked.string('--python_filename nevts:1'),
+    annotation = cms.untracked.string('--python_filename nevts:100'),
     name = cms.untracked.string('Applications'),
     version = cms.untracked.string('$Revision: 1.19 $')
 )
@@ -116,6 +116,7 @@ process.MINIAODSIMoutput = cms.OutputModule("PoolOutputModule",
 # Other statements
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15', '')
+process.MINIAODSIMoutput.outputCommands.append('keep *_genParticlePlusGeant_*_*')
 
 # Path and EndPath definitions
 process.Flag_trackingFailureFilter = cms.Path(process.goodVertices+process.trackingFailureFilter)
@@ -155,6 +156,15 @@ from PhysicsTools.PatAlgos.tools.helpers import associatePatAlgosToolsTask
 associatePatAlgosToolsTask(process)
 
 # customisation of the process.
+
+# Automatic addition of the customisation function from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
+from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi import customizeProduce,customizeKeep 
+
+#call to customisation function customizeProduce imported from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
+process = customizeProduce(process)
+
+#call to customisation function customizeKeep imported from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
+process = customizeKeep(process)
 
 # Automatic addition of the customisation function from Configuration.DataProcessing.Utils
 from Configuration.DataProcessing.Utils import addMonitoring 

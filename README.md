@@ -1,6 +1,11 @@
 
 # Production of MC for Long-Lived STau 2018
 
+To generate ParticleFiles you need to hardcode requiered mstau, mlsp, ctau parameters inside `script/CreatePartFiles.py` and execute
+```sh
+> python script/CreatePartFiles.py
+```
+
 The following soft is supposed to be run at lxplus.cern.ch. To setup environment and generate config files:
 ```sh
 > cmssw-cc6
@@ -17,17 +22,19 @@ Before running crab source CMSSW env:
 > cmsenv
 ```
 
-To generate ParticleFiles you need to hardcode requiered mstau, mlsp, ctau parameters inside `script/CreatePartFiles.py` and execute
+
+For the tests it is possible to run production (few events) locally with:
 ```sh
-> python script/CreatePartFiles.py
+> cd ./python
+> ../script/TestProdLocal.sh
 ```
 
-For the simplicity and to save disk space the production is split only on two steps, generation of RAWSIM data (to test gen-level info) and generation of MiniAOD files.
-
-To submit RAWSIM and MiniAOD steps:
+To submit production on grid:
 ```sh
-> crab submit -c crab_updated_cfg_step_1.py
-> crab submit -c crab_updated_cfg_step_2.py
+> crab submit -c crab_cfg_step_1.py
+> crab submit -c crab_cfg_step_2.py
+> crab submit -c crab_cfg_step_3.py
+> crab submit -c crab_cfg_step_4.py
 ```
 
 Full testing commands are available at LLSTauProduction/test

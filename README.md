@@ -12,7 +12,7 @@ The following soft is supposed to be run at lxplus.cern.ch. To setup environment
 > cd script
 > ./CreateEnv.sh
 > export X509_USER_PROXY=~/public/x509_voms
-> voms-proxy-init --valid 192:00:00 --voms cms --rf
+> voms-proxy-init --valid 192:00:00 --voms cms --rfc
 > ./CreateDrivers.sh
 ```
 

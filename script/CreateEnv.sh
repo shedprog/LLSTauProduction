@@ -23,7 +23,8 @@ else
 fi
 
 # Copy test particle files
-cp ${OUTDIR}/Configuration/ParticleFiles/*.txt ${ENV_PATH}/CMSSW_10_2_16_patch2/src/
+mkdir -p ${ENV_PATH}/CMSSW_10_2_16_patch2/src/data
+cp ${OUTDIR}/Configuration/ParticleFiles/*.txt ${ENV_PATH}/CMSSW_10_2_16_patch2/src/data
 
 cd ${ENV_PATH}/CMSSW_10_2_16_patch2/src
 mkdir -p ${ENV_PATH}/CMSSW_10_2_16_patch2/src/Configuration/GenProduction/python

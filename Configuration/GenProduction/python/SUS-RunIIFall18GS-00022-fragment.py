@@ -137,7 +137,7 @@ for ctau0 in gevWidth:
     COM_ENERGY = 13000. 
     MASS_POINT = mstau  # GeV
     PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
-    PARTICLE_FILE = ("particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(mstau, mlsp, ctau0))
+    PARTICLE_FILE = ("data/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(mstau, mlsp, ctau0))
     SLHA_FILE = 'dummy.slha'
     USE_REGGE = False
 

@@ -23,9 +23,9 @@ DECAY    1000015  %CTAU% # tau + ~chi_10
 
 hBarCinGeVmm = 1.973269788e-13
 
-mstau_list = [90, 100, 150, 200]
-mlsp_list  = [1, 90]
-ctau0_list  = [1, 10, 50, 100, 500, 750, 1000]
+mstau_list = [100,250,400]
+mlsp_list  = [1, 20]
+ctau0_list  = [1000]
 
 grid = list(product(*[mstau_list, mlsp_list, ctau0_list]))
 print "create:",len(grid),"files"

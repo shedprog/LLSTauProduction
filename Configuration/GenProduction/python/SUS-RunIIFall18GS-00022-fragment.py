@@ -91,8 +91,8 @@ hBarCinGeVmm = 1.973269788e-13
 
 # gevWidth = [0.01, 50, 100, 250, 500, 750, 1000]
 gevWidth = [1000]
-mstaus = [100]
-mlsps = [1]
+mstaus = [100,250,400]
+mlsps = [1,20]
 
 def matchParams(mass):
     if mass < 99: return 80,0.63

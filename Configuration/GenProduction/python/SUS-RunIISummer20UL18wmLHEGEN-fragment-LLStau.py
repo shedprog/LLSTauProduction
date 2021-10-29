@@ -343,6 +343,13 @@ from Configuration.Generator.Pythia8CommonSettings_cfi import *
 from Configuration.Generator.MCTunes2017.PythiaCP5Settings_cfi import *
 from Configuration.Generator.PSweightsPythia.PythiaPSweightsSettings_cfi import *
 
+hBarCinGeVmm = 1.973269788e-13
+
+ctau = hBarCinGeVmm / CTAU_POINT
+slhatable = SLHA_TABLE.replace('%MSTAU%','%e' % MASS_POINT)
+slhatable = slhatable.replace('%MLSP%','%e' % MASS_LSP)
+slhatable = slhatable.replace('%CTAU%','%e' % ctau)
+
 #need the pythia hadronizer, not the generator, as the generation was already done in the madgraph gridpacks
 generator = cms.EDFilter("Pythia8HadronizerFilter",
     pythiaPylistVerbosity = cms.untracked.int32(0),
@@ -351,7 +358,7 @@ generator = cms.EDFilter("Pythia8HadronizerFilter",
     comEnergy = cms.double(COM_ENERGY),
     crossSection = cms.untracked.double(CROSS_SECTION),
     maxEventsToPrint = cms.untracked.int32(0),
-    SLHATableForPythia8 = cms.string('%s' % SLHA_TABLE),
+    SLHATableForPythia8 = cms.string('%s' % slhatable),
     PythiaParameters = cms.PSet(
         pythia8CommonSettingsBlock,
         pythia8CP5SettingsBlock,

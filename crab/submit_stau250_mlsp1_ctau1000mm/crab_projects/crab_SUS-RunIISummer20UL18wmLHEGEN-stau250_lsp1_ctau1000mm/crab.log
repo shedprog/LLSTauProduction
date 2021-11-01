@@ -1,0 +1,351 @@
+DEBUG 2021-11-01 16:42:05.870 UTC: 	 CRAB Client version: v3.210825
+DEBUG 2021-11-01 16:42:05.871 UTC: 	 Running on: Linux lxplus781.cern.ch 3.10.0-1160.42.2.el7.x86_64 #1 SMP Tue Sep 7 14:49:57 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2021-11-01 16:42:05.871 UTC: 	 Executing command: 'submit'
+DEBUG 2021-11-01 16:42:05.871 UTC: 	 Found CRAB cache file /afs/cern.ch/user/m/myshched/.crab3
+INFO 2021-11-01 16:42:05.872 UTC: 	 Will use CRAB configuration file ./crab_cfg_step_1.py
+DEBUG 2021-11-01 16:42:05.872 UTC: 	 Loading CRAB configuration file.
+DEBUG 2021-11-01 16:42:05.873 UTC: 	 Will use CRAB PrivateMC plugin (i.e. will run a MC generation job type).
+DEBUG 2021-11-01 16:42:05.895 UTC: 	 Checking credentials
+DEBUG 2021-11-01 16:42:05.896 UTC: 	 Found proxy file /tmp/x509up_u134606
+DEBUG 2021-11-01 16:42:05.896 UTC: 	 Getting proxy life time left
+DEBUG 2021-11-01 16:42:06.612 UTC: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u134606 -timeleft
+ output : 682129
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:42:07.320 UTC: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u134606 -actimeleft
+ output : 682127
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:42:07.320 UTC: 	 Proxy lifetime 682129 secs is different from voms extension lifetime 682127 secs for proxy: /tmp/x509up_u134606
+DEBUG 2021-11-01 16:42:07.320 UTC: 	 Proxy valid for 189:28:47 hours
+DEBUG 2021-11-01 16:42:08.030 UTC: 	 Executing : 
+ command : env X509_USER_PROXY=/tmp/x509up_u134606 voms-proxy-info -fqan
+ output : /cms/Role=NULL/Capability=NULL
+/cms/dcms/Role=NULL/Capability=NULL
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:42:08.148 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+DEBUG 2021-11-01 16:42:08.764 UTC: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u134606 -identity
+ output : /C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:42:08.771 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2021-11-01 16:42:08.771 UTC: 	 using 15a26b5725db614544a74b1c89e541de64c55b1c as credential login name
+DEBUG 2021-11-01 16:42:09.276 UTC: 	 Executing : 
+ command : myproxy-info -l 15a26b5725db614544a74b1c89e541de64c55b1c -s myproxy.cern.ch
+ output : username: 15a26b5725db614544a74b1c89e541de64c55b1c
+owner: /C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  timeleft: 717:21:52  (29.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:42:09.278 UTC: 	 Myproxy is valid: 2582512
+DEBUG 2021-11-01 16:42:09.278 UTC: 	 Retrieving username ...
+DEBUG 2021-11-01 16:42:09.278 UTC: 	 Retrieving username from CRIC...
+DEBUG 2021-11-01 16:42:49.231 UTC: 	 username is myshched
+DEBUG 2021-11-01 16:42:49.237 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2021-11-01 16:42:49.237 UTC: 	 using myshched_CRAB as credential login name
+DEBUG 2021-11-01 16:42:49.741 UTC: 	 Executing : 
+ command : myproxy-info -l myshched_CRAB -s myproxy.cern.ch
+ output : username: myshched_CRAB
+owner: /C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  timeleft: 717:21:38  (29.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:42:49.742 UTC: 	 Myproxy is valid: 2582498
+DEBUG 2021-11-01 16:42:49.742 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 15a26b5725db614544a74b1c89e541de64c55b1c  - validity: 29 days, 21:21:52
+  Credential exists on myproxy: username: myshched_CRAB  - validity: 29 days, 21:21:38
+DEBUG 2021-11-01 16:42:49.742 UTC: 	 Command use: submit
+DEBUG 2021-11-01 16:42:49.742 UTC: 	 Options use: ['-c', './crab_cfg_step_1.py']
+DEBUG 2021-11-01 16:42:49.795 UTC: 	 CRABClient version: v3.210825
+DEBUG 2021-11-01 16:42:49.795 UTC: 	 Instance is prod
+DEBUG 2021-11-01 16:42:49.795 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2021-11-01 16:42:49.795 UTC: 	 Command api workflow
+DEBUG 2021-11-01 16:42:49.795 UTC: 	 Started submission
+DEBUG 2021-11-01 16:42:49.795 UTC: 	 Working on /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm
+DEBUG 2021-11-01 16:42:49.999 UTC: 	 Loading required information from the environment
+DEBUG 2021-11-01 16:42:49.999 UTC: 	 Found CMSSW_10_6_27 for slc7_amd64_gcc700 with base /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27
+DEBUG 2021-11-01 16:42:49.999 UTC: 	 UNIQUE NAME: tarUUID f39b9989-8bbd-42da-a2c3-c0dcda382628 
+DEBUG 2021-11-01 16:42:49.999 UTC: 	 self.config: from WMCore.Configuration import Configuration
+config = Configuration()
+config.section_('General')
+config.General.workArea = 'crab_projects'
+config.General.requestName = 'SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm'
+config.section_('JobType')
+config.JobType.psetName = '../../python/SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm_cfg.py'
+config.JobType.pluginName = 'PrivateMC'
+config.JobType.maxJobRuntimeMin = 1800
+config.JobType.maxMemoryMB = 2500
+config.section_('Data')
+config.Data.outputDatasetTag = 'GENSIM'
+config.Data.totalUnits = 2000000
+config.Data.unitsPerJob = 2000
+config.Data.inputDBS = 'global'
+config.Data.splitting = 'EventBased'
+config.Data.outLFNDirBase = '/store/user/myshched/mc/'
+config.Data.outputPrimaryDataset = 'SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm-GENSIM'
+config.Data.publication = True
+config.section_('Site')
+config.Site.storageSite = 'T2_DE_DESY'
+
+DEBUG 2021-11-01 16:42:49.999 UTC: 	 self.config.JobType.psetName: ../../python/SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm_cfg.py
+INFO 2021-11-01 16:42:50.001 UTC: 	 Importing CMSSW configuration ../../python/SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm_cfg.py
+INFO 2021-11-01 16:42:55.205 UTC: 	 Finished importing CMSSW configuration ../../python/SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm_cfg.py
+DEBUG 2021-11-01 16:42:55.205 UTC: 	 Writing CMSSW configuration to /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/PSet.py
+DEBUG 2021-11-01 16:42:55.796 UTC: 	 The following EDM output files will be collected: ['SUS-RunIISummer20UL18wmLHEGEN-LLStau.root']
+DEBUG 2021-11-01 16:42:55.796 UTC: 	 The following TFile output files will be collected: []
+DEBUG 2021-11-01 16:42:55.796 UTC: 	 The following user output files (not listed as PoolOuputModule or TFileService in the CMSSW PSet) will be collected: 
+DEBUG 2021-11-01 16:42:55.797 UTC: 	 Loading required information from the environment
+DEBUG 2021-11-01 16:42:55.797 UTC: 	 Found CMSSW_10_6_27 for slc7_amd64_gcc700 with base /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27
+DEBUG 2021-11-01 16:42:55.797 UTC: 	 Making tarball in /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/f39b9989-8bbd-42da-a2c3-c0dcda382628default.tgz
+DEBUG 2021-11-01 16:42:55.798 UTC: 	 Checking directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/lib
+DEBUG 2021-11-01 16:42:55.798 UTC: 	 Adding directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/lib to tarball
+DEBUG 2021-11-01 16:42:55.906 UTC: 	 Checking directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/biglib
+DEBUG 2021-11-01 16:42:55.906 UTC: 	 Adding directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/biglib to tarball
+DEBUG 2021-11-01 16:43:03.049 UTC: 	 Checking directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/module
+DEBUG 2021-11-01 16:43:03.892 UTC: 	 Adding data directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/src/SimG4Core/CustomPhysics/data to tarball
+DEBUG 2021-11-01 16:43:04.260 UTC: 	 Adding data directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/src/SimG4Core/CustomPhysics/interface to tarball
+DEBUG 2021-11-01 16:43:04.304 UTC: 	 Adding data directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/src/Configuration/Generator/data to tarball
+DEBUG 2021-11-01 16:43:04.858 UTC: 	 Adding data directory /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27/src/data to tarball
+DEBUG 2021-11-01 16:43:05.923 UTC: 	 Uploading archive /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/f39b9989-8bbd-42da-a2c3-c0dcda382628default.tgz (12 MB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2021-11-01 16:43:10.790 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=myshched/sandboxes/d816fe99271bf8be2a68229842402570244ae6e4afa17ca94fc4f6311d3b79d1.tar.gz" -F "AWSAccessKeyId=ab00fcc889f248c495d2875f15a3badb" -F "policy=eyJjb25kaXRpb25zIjogW3siYnVja2V0IjogImNyYWJjYWNoZV9wcm9kIn0sIHsia2V5IjogIm15c2hjaGVkL3NhbmRib3hlcy9kODE2ZmU5OTI3MWJmOGJlMmE2ODIyOTg0MjQwMjU3MDI0NGFlNmU0YWZhMTdjYTk0ZmM0ZjYzMTFkM2I3OWQxLnRhci5neiJ9XSwgImV4cGlyYXRpb24iOiAiMjAyMS0xMS0wMVQxNzo0MzoxMFoifQ==" -F "signature=vXRhADF2hv63Y+JKsfwA3WajiRA=" -F "file=@/afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/f39b9989-8bbd-42da-a2c3-c0dcda382628default.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2021-11-01 16:43:12.601 UTC: 	 exitcode: 0
+stdout: 
+stderr: Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 2001:1458:d00:1a::24b...
+* TCP_NODELAY set
+* Connected to s3.cern.ch (2001:1458:d00:1a::24b) port 443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [70 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [4780 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Client hello (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: C=CH; ST=Genève; L=Meyrin; O=Organisation européenne pour la Recherche nucléaire (CERN); CN=*.s3.cern.ch
+*  start date: Mar 10 00:00:00 2021 GMT
+*  expire date: Mar 10 23:59:59 2022 GMT
+*  subjectAltName: host "s3.cern.ch" matched cert's "s3.cern.ch"
+*  issuer: C=GB; ST=Greater Manchester; L=Salford; O=Sectigo Limited; CN=Sectigo RSA Organization Validation Secure Server CA
+*  SSL certificate verify ok.
+} [5 bytes data]
+> POST /crabcache_prod HTTP/1.1
+> Host: s3.cern.ch
+> Accept: */*
+> User-Agent: CRAB
+> Content-Length: 13171331
+> Content-Type: multipart/form-data; boundary=------------------------b840e03ab847759a
+> Expect: 100-continue
+> 
+* Done waiting for 100-continue
+  0 12.5M    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0} [5 bytes data]
+< HTTP/1.1 100 Continue
+} [5 bytes data]
+< HTTP/1.1 204 No Content
+< Accept-Ranges: bytes
+< Bucket: crabcache_prod
+< Date: Mon, 01 Nov 2021 16:43:12 GMT
+< X-Amz-Request-Id: tx00000000000000166b267-006180191e-1e4f6b7d-default
+< 
+100 12.5M    0     0  100 12.5M      0  7275k  0:00:01  0:00:01 --:--:-- 7271k100 12.5M    0     0  100 12.5M      0  7275k  0:00:01  0:00:01 --:--:-- 7271k
+* Connection #0 to host s3.cern.ch left intact
+
+DEBUG 2021-11-01 16:43:12.601 UTC: 	 sandbox /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/f39b9989-8bbd-42da-a2c3-c0dcda382628default.tgz successully uploaded to S3
+DEBUG 2021-11-01 16:43:12.602 UTC: 	 Loading required information from the environment
+DEBUG 2021-11-01 16:43:12.602 UTC: 	 Found CMSSW_10_6_27 for slc7_amd64_gcc700 with base /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/envs/CMSSW_10_6_27
+DEBUG 2021-11-01 16:43:12.602 UTC: 	 Making tarball in /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/debugFiles.tgz
+DEBUG 2021-11-01 16:43:12.620 UTC: 	 Uploading archive /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/debugFiles.tgz (6 KB) to the CRAB cache. Using URI https://cmsweb.cern.ch/S3/crabcache_prod
+DEBUG 2021-11-01 16:43:12.806 UTC: 	 Will execute:
+curl -f -v -X POST  -H "User-Agent: CRAB" -F "key=myshched/sandboxes/3572abf347a78eef4b11aad1e8ca60f1974de904bf64bd819a36cfecd7bdd091.tar.gz" -F "AWSAccessKeyId=ab00fcc889f248c495d2875f15a3badb" -F "policy=eyJjb25kaXRpb25zIjogW3siYnVja2V0IjogImNyYWJjYWNoZV9wcm9kIn0sIHsia2V5IjogIm15c2hjaGVkL3NhbmRib3hlcy8zNTcyYWJmMzQ3YTc4ZWVmNGIxMWFhZDFlOGNhNjBmMTk3NGRlOTA0YmY2NGJkODE5YTM2Y2ZlY2Q3YmRkMDkxLnRhci5neiJ9XSwgImV4cGlyYXRpb24iOiAiMjAyMS0xMS0wMVQxNzo0MzoxMloifQ==" -F "signature=1TCEdnPQfPONoWHE+RPX9O2vGf0=" -F "file=@/afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/debugFiles.tgz" "https://s3.cern.ch/crabcache_prod"
+DEBUG 2021-11-01 16:43:13.883 UTC: 	 exitcode: 0
+stdout: 
+stderr: Note: Unnecessary use of -X or --request, POST is already inferred.
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0*   Trying 2001:1458:d00:1a::24b...
+* TCP_NODELAY set
+* Connected to s3.cern.ch (2001:1458:d00:1a::24b) port 443 (#0)
+* ALPN, offering http/1.1
+* Cipher selection: ALL:!EXPORT:!EXPORT40:!EXPORT56:!aNULL:!LOW:!RC4:@STRENGTH
+* successfully set certificate verify locations:
+  CAfile: /etc/pki/tls/certs/ca-bundle.crt
+  CApath: none
+* TLSv1.2 (OUT), TLS header, Certificate Status (22):
+} [5 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client hello (1):
+} [512 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server hello (2):
+{ [70 bytes data]
+* TLSv1.2 (IN), TLS handshake, Certificate (11):
+{ [4780 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server key exchange (12):
+{ [333 bytes data]
+* TLSv1.2 (IN), TLS handshake, Server finished (14):
+{ [4 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Client key exchange (16):
+} [70 bytes data]
+* TLSv1.2 (OUT), TLS change cipher, Client hello (1):
+} [1 bytes data]
+* TLSv1.2 (OUT), TLS handshake, Finished (20):
+} [16 bytes data]
+* TLSv1.2 (IN), TLS change cipher, Client hello (1):
+{ [1 bytes data]
+* TLSv1.2 (IN), TLS handshake, Finished (20):
+{ [16 bytes data]
+* SSL connection using TLSv1.2 / ECDHE-RSA-AES128-GCM-SHA256
+* ALPN, server accepted to use http/1.1
+* Server certificate:
+*  subject: C=CH; ST=Genève; L=Meyrin; O=Organisation européenne pour la Recherche nucléaire (CERN); CN=*.s3.cern.ch
+*  start date: Mar 10 00:00:00 2021 GMT
+*  expire date: Mar 10 23:59:59 2022 GMT
+*  subjectAltName: host "s3.cern.ch" matched cert's "s3.cern.ch"
+*  issuer: C=GB; ST=Greater Manchester; L=Salford; O=Sectigo Limited; CN=Sectigo RSA Organization Validation Secure Server CA
+*  SSL certificate verify ok.
+} [5 bytes data]
+> POST /crabcache_prod HTTP/1.1
+> Host: s3.cern.ch
+> Accept: */*
+> User-Agent: CRAB
+> Content-Length: 8000
+> Content-Type: multipart/form-data; boundary=------------------------1f34e5971127c233
+> Expect: 100-continue
+> 
+* Done waiting for 100-continue
+  0  8000    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0} [5 bytes data]
+< HTTP/1.1 100 Continue
+{ [5 bytes data]
+< HTTP/1.1 204 No Content
+< Accept-Ranges: bytes
+< Bucket: crabcache_prod
+< Date: Mon, 01 Nov 2021 16:43:13 GMT
+< X-Amz-Request-Id: tx000000000000005605a2d-0061801920-205e22c3-default
+< 
+100  8000    0     0  100  8000      0   7626  0:00:01  0:00:01 --:--:--  7626
+* Connection #0 to host s3.cern.ch left intact
+
+DEBUG 2021-11-01 16:43:13.883 UTC: 	 sandbox /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/inputs/debugFiles.tgz successully uploaded to S3
+DEBUG 2021-11-01 16:43:13.883 UTC: 	 Result uploading input files: d816fe99271bf8be2a68229842402570244ae6e4afa17ca94fc4f6311d3b79d1.tar.gz 
+INFO 2021-11-01 16:43:13.884 UTC: 	 Sending the request to the server at cmsweb.cern.ch
+DEBUG 2021-11-01 16:43:13.884 UTC: 	 Submitting {'maxjobruntime': 1800, 'extrajdl': [], 'ignorelocality': 0, 'savelogsflag': 0, 'useparent': 0, 'asyncdest': 'T2_DE_DESY', 'algoargs': 2000, 'cachefilename': 'd816fe99271bf8be2a68229842402570244ae6e4afa17ca94fc4f6311d3b79d1.tar.gz', 'numcores': 1, 'addoutputfiles': [], 'generator': 'pythia', 'maxmemory': 2500, 'publishdbsurl': 'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', 'priority': 10, 'jobsw': 'CMSSW_10_6_27', 'edmoutfiles': ['SUS-RunIISummer20UL18wmLHEGEN-LLStau.root'], 'userfiles': [], 'primarydataset': 'SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm-GENSIM', 'inputdata': '', 'lfn': '/store/user/myshched/mc/', 'dryrun': 0, 'workflow': 'crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm', 'cacheurl': u'https://cmsweb.cern.ch/S3/crabcache_prod', 'nonprodsw': 0, 'tfileoutfiles': [], 'oneEventMode': 0, 'debugfilename': '3572abf347a78eef4b11aad1e8ca60f1974de904bf64bd819a36cfecd7bdd091.tar.gz', 'saveoutput': 1, 'publication': 1, 'jobarch': 'slc7_amd64_gcc700', 'totalunits': 2000000, 'splitalgo': 'EventBased', 'ignoreglobalblacklist': 0, 'nonvaliddata': 0, 'dbsurl': 'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', 'publishgroupname': 0, 'jobtype': 'PrivateMC', 'publishname2': 'GENSIM'} 
+DEBUG 2021-11-01 16:43:13.885 UTC: 	 Encoded submit request: maxjobruntime=1800&ignorelocality=0&savelogsflag=0&useparent=0&asyncdest=T2_DE_DESY&algoargs=2000&cachefilename=d816fe99271bf8be2a68229842402570244ae6e4afa17ca94fc4f6311d3b79d1.tar.gz&numcores=1&generator=pythia&maxmemory=2500&publishdbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fphys03%2FDBSWriter&priority=10&jobsw=CMSSW_10_6_27&primarydataset=SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm-GENSIM&inputdata=&lfn=%2Fstore%2Fuser%2Fmyshched%2Fmc%2F&dryrun=0&workflow=crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm&cacheurl=https%3A%2F%2Fcmsweb.cern.ch%2FS3%2Fcrabcache_prod&nonprodsw=0&oneEventMode=0&debugfilename=3572abf347a78eef4b11aad1e8ca60f1974de904bf64bd819a36cfecd7bdd091.tar.gz&saveoutput=1&publication=1&jobarch=slc7_amd64_gcc700&totalunits=2000000&splitalgo=EventBased&ignoreglobalblacklist=0&nonvaliddata=0&dbsurl=https%3A%2F%2Fcmsweb.cern.ch%2Fdbs%2Fprod%2Fglobal%2FDBSReader&publishgroupname=0&jobtype=PrivateMC&publishname2=GENSIM&edmoutfiles=SUS-RunIISummer20UL18wmLHEGEN-LLStau.root
+DEBUG 2021-11-01 16:43:14.124 UTC: 	 Result: {u'result': [{u'RequestName': u'211101_164313:myshched_crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm'}]}
+INFO 2021-11-01 16:43:14.127 UTC: 	 Success: Your task has been delivered to the prod CRAB3 server.
+INFO 2021-11-01 16:43:14.127 UTC: 	 Task name: 211101_164313:myshched_crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm
+INFO 2021-11-01 16:43:14.127 UTC: 	 Project dir: crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm
+INFO 2021-11-01 16:43:14.127 UTC: 	 Please use ' crab status -d crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm ' to check how the submission process proceeds.
+DEBUG 2021-11-01 16:43:14.129 UTC: 	 About to return
+INFO 2021-11-01 16:43:14.132 UTC: 	 Log file is /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/crab.log
+DEBUG 2021-11-01 16:43:59.393 UTC: 	 CRAB Client version: v3.210825
+DEBUG 2021-11-01 16:43:59.393 UTC: 	 Running on: Linux lxplus781.cern.ch 3.10.0-1160.42.2.el7.x86_64 #1 SMP Tue Sep 7 14:49:57 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2021-11-01 16:43:59.393 UTC: 	 Executing command: 'status'
+DEBUG 2021-11-01 16:43:59.393 UTC: 	 Found CRAB cache file /afs/cern.ch/user/m/myshched/.crab3
+DEBUG 2021-11-01 16:43:59.409 UTC: 	 Checking credentials
+DEBUG 2021-11-01 16:43:59.409 UTC: 	 Found proxy file /tmp/x509up_u134606
+DEBUG 2021-11-01 16:43:59.409 UTC: 	 Getting proxy life time left
+DEBUG 2021-11-01 16:44:00.114 UTC: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u134606 -timeleft
+ output : 682015
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:44:00.826 UTC: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u134606 -actimeleft
+ output : 682014
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:44:00.826 UTC: 	 Proxy lifetime 682015 secs is different from voms extension lifetime 682014 secs for proxy: /tmp/x509up_u134606
+DEBUG 2021-11-01 16:44:00.826 UTC: 	 Proxy valid for 189:26:54 hours
+DEBUG 2021-11-01 16:44:00.907 UTC: 	 Registering user credentials for server /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+DEBUG 2021-11-01 16:44:01.620 UTC: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u134606 -identity
+ output : /C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:44:01.628 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2021-11-01 16:44:01.628 UTC: 	 using 15a26b5725db614544a74b1c89e541de64c55b1c as credential login name
+DEBUG 2021-11-01 16:44:02.033 UTC: 	 Executing : 
+ command : myproxy-info -l 15a26b5725db614544a74b1c89e541de64c55b1c -s myproxy.cern.ch
+ output : username: 15a26b5725db614544a74b1c89e541de64c55b1c
+owner: /C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  timeleft: 717:20:00  (29.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:44:02.034 UTC: 	 Myproxy is valid: 2582400
+DEBUG 2021-11-01 16:44:02.034 UTC: 	 Retrieving username ...
+DEBUG 2021-11-01 16:44:02.034 UTC: 	 Retrieving username from CRIC...
+DEBUG 2021-11-01 16:44:17.135 UTC: 	 username is myshched
+DEBUG 2021-11-01 16:44:17.148 UTC: 	 Getting myproxy life time left for myproxy.cern.ch
+DEBUG 2021-11-01 16:44:17.148 UTC: 	 using myshched_CRAB as credential login name
+DEBUG 2021-11-01 16:44:17.452 UTC: 	 Executing : 
+ command : myproxy-info -l myshched_CRAB -s myproxy.cern.ch
+ output : username: myshched_CRAB
+owner: /C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev
+  renewal policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  trusted retrieval policy: /DC=ch/DC=cern/OU=computers/CN=crab-(preprod|prod|dev)-tw(02|01).cern.ch|/DC=ch/DC=cern/OU=computers/CN=stefanov(m|m2).cern.ch
+  timeleft: 717:20:10  (29.9 days)
+
+ error: 
+ retcode : 0
+DEBUG 2021-11-01 16:44:17.453 UTC: 	 Myproxy is valid: 2582410
+DEBUG 2021-11-01 16:44:17.453 UTC: 	 Result of myproxy credential check:
+  Credential exists on myproxy: username: 15a26b5725db614544a74b1c89e541de64c55b1c  - validity: 29 days, 21:20:00
+  Credential exists on myproxy: username: myshched_CRAB  - validity: 29 days, 21:20:10
+DEBUG 2021-11-01 16:44:17.454 UTC: 	 Command use: status
+DEBUG 2021-11-01 16:44:17.454 UTC: 	 Options use: ['-d', 'crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm']
+DEBUG 2021-11-01 16:44:17.537 UTC: 	 CRABClient version: v3.210825
+DEBUG 2021-11-01 16:44:17.537 UTC: 	 Instance is prod
+DEBUG 2021-11-01 16:44:17.537 UTC: 	 Server base url is cmsweb.cern.ch
+DEBUG 2021-11-01 16:44:17.537 UTC: 	 Command api workflow
+DEBUG 2021-11-01 16:44:17.600 UTC: 	 Got information from server oracle database: {u'result': [u'211101_164313:myshched_crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm', u'None', u'None', u'QUEUED', u'SUBMIT', u'2021-11-01 16:43:14.117553', u'None', u'None', u'None', u'CMSSW_10_6_27', u'slc7_amd64_gcc700', u'None', u'F', u'0', u'[]', u'[]', u'EventBased', u"{'splitOnRun': False, 'events_per_job': 2000, 'halt_job_on_file_boundaries': False, 'runs': [], 'lumis': []}", u'd816fe99271bf8be2a68229842402570244ae6e4afa17ca94fc4f6311d3b79d1.tar.gz', u'https://cmsweb.cern.ch/S3/crabcache_prod', u'myshched', u'/C=DE/O=GermanGrid/OU=DESY/CN=Mykyta Shchedrolosiev', u'cms', u'None', u'None', u'GENSIM-00000000000000000000000000000000', u'F', u'T2_DE_DESY', u'https://cmsweb.cern.ch/dbs/prod/global/DBSReader', u'https://cmsweb.cern.ch/dbs/prod/phys03/DBSWriter', u'T', u'[]', u'[]', u"[b'SUS-RunIISummer20UL18wmLHEGEN-LLStau.root']", u'PrivateMC', u'pythia', u'None', u'{}', u'[]', u'F', u'crab-prod-tw01', u'[]', u'1800', u'1', u'2500', u'10', u'None', u'[]', u'None', u'None', u'[]', u'[]', u'https://cmsweb.cern.ch/crabserver/prod', u'cmsgwms-collector-global.cern.ch:9620,cmsgwms-collector-global.fnal.gov:9620', u'None', u'F', u'[]', u'T', u'/store/user/myshched/mc/', u'F', u'None', u'F', u'None', u'SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm-GENSIM', u'None', u'3572abf347a78eef4b11aad1e8ca60f1974de904bf64bd819a36cfecd7bdd091.tar.gz', u'None', u'filetransfers', u'F', u'188.185.120.166', u'2000000.0', u'None'], u'desc': {u'columns': [u'tm_taskname', u'tm_activity', u'panda_jobset_id', u'tm_task_status', u'tm_task_command', u'tm_start_time', u'tm_start_injection', u'tm_end_injection', u'tm_task_failure', u'tm_job_sw', u'tm_job_arch', u'tm_input_dataset', u'tm_nonvalid_input_dataset', u'tm_use_parent', u'tm_site_whitelist', u'tm_site_blacklist', u'tm_split_algo', u'tm_split_args', u'tm_user_sandbox', u'tm_cache_url', u'tm_username', u'tm_user_dn', u'tm_user_vo', u'tm_user_role', u'tm_user_group', u'tm_publish_name', u'tm_publish_groupname', u'tm_asyncdest', u'tm_dbs_url', u'tm_publish_dbs_url', u'tm_publication', u'tm_outfiles', u'tm_tfile_outfiles', u'tm_edm_outfiles', u'tm_job_type', u'tm_generator', u'tm_events_per_lumi', u'tm_arguments', u'panda_resubmitted_jobs', u'tm_save_logs', u'tw_name', u'tm_user_infiles', u'tm_maxjobruntime', u'tm_numcores', u'tm_maxmemory', u'tm_priority', u'tm_output_dataset', u'tm_task_warnings', u'tm_user_webdir', u'tm_scriptexe', u'tm_scriptargs', u'tm_extrajdl', u'tm_asourl', u'tm_collector', u'tm_schedd', u'tm_dry_run', u'tm_user_files', u'tm_transfer_outputs', u'tm_output_lfn', u'tm_ignore_locality', u'tm_fail_limit', u'tm_one_event_mode', u'tm_secondary_input_dataset', u'tm_primary_dataset', u'tm_last_publication', u'tm_debug_files', u'clusterid', u'tm_asodb', u'tm_ignore_global_blacklist', u'tm_submitter_ip_addr', u'tm_totalunits', u'tm_ddm_reqid']}}
+INFO 2021-11-01 16:44:17.600 UTC: 	 CRAB project directory:		/afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm
+INFO 2021-11-01 16:44:17.600 UTC: 	 Task name:			211101_164313:myshched_crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm
+INFO 2021-11-01 16:44:17.600 UTC: 	 Grid scheduler - Task Worker:	N/A yet - crab-prod-tw01
+INFO 2021-11-01 16:44:17.600 UTC: 	 Status on the CRAB server:	QUEUED on command SUBMIT
+INFO 2021-11-01 16:44:17.600 UTC: 	 Task URL to use for HELP:	https://cmsweb.cern.ch/crabserver/ui/task/211101_164313%3Amyshched_crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm
+INFO 2021-11-01 16:44:17.612 UTC: 	 Dashboard monitoring URL:	https://monit-grafana.cern.ch/d/cmsTMDetail/cms-task-monitoring-task-view?orgId=11&var-user=myshched&var-task=211101_164313%3Amyshched_crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm&from=1635781394000&to=now
+DEBUG 2021-11-01 16:44:17.612 UTC: 	 The task has not been submitted to the Grid scheduler yet. Not printing job information.
+INFO 2021-11-01 16:44:17.614 UTC: 	 Log file is /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/crab/submit_stau250_mlsp1_ctau1000mm/crab_projects/crab_SUS-RunIISummer20UL18wmLHEGEN-stau250_lsp1_ctau1000mm/crab.log

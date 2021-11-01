@@ -35,10 +35,10 @@ for CTAU in ${CTAU_POINTS[@]}; do
 echo "Creating cmsDrive for GEN-SIM, Create for mstau:${MASS}, mlsp:${LSP}, ctau:${CTAU}mm"
 cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py \
   --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18wmLHEGEN-stau${MASS}_lsp${LSP}_ctau${CTAU}mm_cfg.py \
-  --eventcontent RAWSIM,LHE \
+  --eventcontent RAWSIM \
   --outputCommand 'keep *_genParticlePlusGeant_*_*' \
   --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/Exotica_HSCP_SIM_cfi.customise,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce \
-  --datatier GEN-SIM,LHE \
+  --datatier GEN-SIM \
   --fileout file:SUS-RunIISummer20UL18wmLHEGEN-LLStau.root \
   --conditions 106X_upgrade2018_realistic_v11_L1v1 \
   --beamspot Realistic25ns13TeVEarly2018Collision \

@@ -11,19 +11,19 @@ source /cvmfs/cms.cern.ch/cmsset_default.sh
 export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 export SCRAM_ARCH=slc7_amd64_gcc700
 
-# if [ -r ${ENV_PATH}/CMSSW_10_6_27/src ] ; then
-#   echo "CMSSW_10_6_27 exists"
-#   cd ${ENV_PATH}/CMSSW_10_6_27/src
-#   eval `scramv1 runtime -sh` # the same as cmsenv
-#   cd -
-# else
-#   echo "CMSSW_10_6_27 does not exist"
-#   exit 1
-# fi
+if [ -r ${ENV_PATH}/CMSSW_10_6_27/src ] ; then
+  echo "CMSSW_10_6_27 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_27/src
+  eval `scramv1 runtime -sh` # the same as cmsenv
+  cd -
+else
+  echo "CMSSW_10_6_27 does not exist"
+  exit 1
+fi
 
-# cmsRun -e -j SUS-RunIISummer20UL18wmLHEGEN_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18wmLHEGEN_cfg.py || exit $? ;
+cmsRun -e -j SUS-RunIISummer20UL18wmLHEGEN_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18wmLHEGEN-stau100_lsp1_ctau1000mm_cfg.py || exit $? ;
 
-# cmsRun -e -j SUS-RunIISummer20UL18DIGIPremix_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18DIGIPremix_cfg.py || exit $? ;
+cmsRun -e -j SUS-RunIISummer20UL18DIGIPremix_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18DIGIPremix_cfg.py || exit $? ;
 
 if [ -r ${ENV_PATH}/CMSSW_10_2_16_UL/src ] ; then
   echo "CMSSW_10_2_16_UL exists"

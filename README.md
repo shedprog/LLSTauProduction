@@ -8,10 +8,14 @@ To generate ParticleFiles you need to hardcode requiered mstau, mlsp, ctau param
 > python script/CreatePartFiles.py
 ```
 
-The following soft is supposed to be run at lxplus.cern.ch. To setup environment and generate config files:
+The following soft is supposed to be run at lxplus.cern.ch. You need to you need to hardcode requiered mstau, mlsp, ctau parameters inside `./CreateEnv.sh`. To setup environment run:
 ```sh
 > cd script
 > ./CreateEnv.sh
+```
+
+You need to you need to hardcode requiered mstau, mlsp, ctau parameters inside `CreateDrivers.sh`. To generate config files run:
+```sh
 > export X509_USER_PROXY=~/public/x509_voms
 > voms-proxy-init --valid 192:00:00 --voms cms --rfc
 > ./CreateDrivers.sh

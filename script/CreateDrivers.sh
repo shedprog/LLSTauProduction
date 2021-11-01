@@ -24,9 +24,17 @@ else
   exit 1
 fi
 
-echo "Creating cmsDrive for GEN-SIM"
-cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-LLStau.py \
-  --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18wmLHEGEN_cfg.py \
+STAU_MASS_POINTS=(100 250 400) #GeV
+LSP_MASS_POINTS=(1) #GeV
+CTAU_POINTS=(1000) #mm
+
+for MASS in ${STAU_MASS_POINTS[@]}; do
+for LSP in ${LSP_MASS_POINTS[@]}; do
+for CTAU in ${CTAU_POINTS[@]}; do
+
+echo "Creating cmsDrive for GEN-SIM, Create for mstau:${MASS}, mlsp:${LSP}, ctau:${CTAU}mm"
+cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py \
+  --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18wmLHEGEN-stau${MASS}_lsp${LSP}_ctau${CTAU}mm_cfg.py \
   --eventcontent RAWSIM,LHE \
   --outputCommand 'keep *_genParticlePlusGeant_*_*' \
   --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/Exotica_HSCP_SIM_cfi.customise,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce \
@@ -39,6 +47,10 @@ cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fr
   --geometry DB:Extended \
   --era Run2_2018 \
   --no_exec --mc -n 20 || exit $? ;
+
+done
+done
+done
 
 if [ -r ${ENV_PATH}/CMSSW_10_6_27/src ] ; then
   echo "CMSSW_10_6_27 exists"

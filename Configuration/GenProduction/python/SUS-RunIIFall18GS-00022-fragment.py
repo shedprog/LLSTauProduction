@@ -90,9 +90,9 @@ hBarCinGeVmm = 1.973269788e-13
 # mlsps = [50,100]
 
 # gevWidth = [0.01, 50, 100, 250, 500, 750, 1000]
-gevWidth = [1000]
-mstaus = [100,250,400]
-mlsps = [1,20]
+# gevWidth = [1000]
+# mstaus = [100,250,400]
+# mlsps = [1,20]
 
 def matchParams(mass):
     if mass < 99: return 80,0.63
@@ -113,77 +113,82 @@ nevt = 50
 # -------------------------------
 #    Constructing grid
 
-mpoints = []
+# mpoints = []
 
-for mx in mstaus:
-    for my in mlsps:
-        if my<mx:
-            mpoints.append([mx,my,nevt])
+# for mx in mstaus:
+#     for my in mlsps:
+#         if my<mx:
+#             mpoints.append([mx,my,nevt])
 
 
-for ctau0 in gevWidth:
-  for point in mpoints:
-    mstau, mlsp = point[0], point[1]
-    qcut, tru_eff = matchParams(mstau)
-    wgt = point[2]/tru_eff
-    ctau = hBarCinGeVmm / ctau0
+# for ctau0 in gevWidth:
+#   for point in mpoints:
 
-    if mlsp==0: mlsp = 1
-    slhatable = baseSLHATable.replace('%MSTAU%','%e' % mstau)
-    slhatable = slhatable.replace('%MLSP%','%e' % mlsp)
-    slhatable = slhatable.replace('%CTAU%','%e' % ctau)
 
-    FLAVOR = 'stau'
-    COM_ENERGY = 13000. 
-    MASS_POINT = mstau  # GeV
-    PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
-    PARTICLE_FILE = ("data/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(mstau, mlsp, ctau0))
-    SLHA_FILE = 'dummy.slha'
-    USE_REGGE = False
+ctau0=1000
+point=[250,1,nevt]
 
-    basePythiaParameters = cms.PSet(
-        pythia8CommonSettingsBlock,
-        pythia8CP5SettingsBlock,
-        JetMatchingParameters = cms.vstring(
-            'JetMatching:setMad = off',
-            'JetMatching:scheme = 1',
-            'JetMatching:merge = on',
-            'JetMatching:jetAlgorithm = 2',
-            'JetMatching:etaJetMax = 5.',
-            'JetMatching:coneRadius = 1.',
-            'JetMatching:slowJetPower = 1',
-            'JetMatching:qCut = %.0f' % qcut, #this is the actual merging scale
-            'JetMatching:nQmatch = 5', #4 corresponds to 4-flavour scheme (no matching of b-quarks), 5 for 5-flavour scheme
-            'JetMatching:nJetMax = 2', #number of partons in born matrix element for highest multiplicity
-            'JetMatching:doShowerKt = off', #off for MLM matching, turn on for shower-kT matching
-            '6:m0 = 172.5',
-            'Check:abortIfVeto = on',
-        ),
-        parameterSets = cms.vstring('pythia8CommonSettings',
-                                    'pythia8CP5Settings',
-                                    'JetMatchingParameters'
-        )
+mstau, mlsp = point[0], point[1]
+qcut, tru_eff = matchParams(mstau)
+wgt = point[2]/tru_eff
+ctau = hBarCinGeVmm / ctau0
+
+if mlsp==0: mlsp = 1
+slhatable = baseSLHATable.replace('%MSTAU%','%e' % mstau)
+slhatable = slhatable.replace('%MLSP%','%e' % mlsp)
+slhatable = slhatable.replace('%CTAU%','%e' % ctau)
+
+FLAVOR = 'stau'
+COM_ENERGY = 13000. 
+MASS_POINT = mstau  # GeV
+PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
+PARTICLE_FILE = ("data/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(mstau, mlsp, ctau0))
+SLHA_FILE = 'dummy.slha'
+USE_REGGE = False
+
+basePythiaParameters = cms.PSet(
+    pythia8CommonSettingsBlock,
+    pythia8CP5SettingsBlock,
+    JetMatchingParameters = cms.vstring(
+        'JetMatching:setMad = off',
+        'JetMatching:scheme = 1',
+        'JetMatching:merge = on',
+        'JetMatching:jetAlgorithm = 2',
+        'JetMatching:etaJetMax = 5.',
+        'JetMatching:coneRadius = 1.',
+        'JetMatching:slowJetPower = 1',
+        'JetMatching:qCut = %.0f' % qcut, #this is the actual merging scale
+        'JetMatching:nQmatch = 5', #4 corresponds to 4-flavour scheme (no matching of b-quarks), 5 for 5-flavour scheme
+        'JetMatching:nJetMax = 2', #number of partons in born matrix element for highest multiplicity
+        'JetMatching:doShowerKt = off', #off for MLM matching, turn on for shower-kT matching
+        '6:m0 = 172.5',
+        'Check:abortIfVeto = on',
+    ),
+    parameterSets = cms.vstring('pythia8CommonSettings',
+                                'pythia8CP5Settings',
+                                'JetMatchingParameters'
     )
+)
 
 
-    basePythiaParameters.pythia8CommonSettings.extend(['1000015:tau0 = %e' % ctau0])
-    basePythiaParameters.pythia8CommonSettings.extend(['ParticleDecays:tau0Max = 3000.1'])
-    basePythiaParameters.pythia8CommonSettings.extend(['LesHouches:setLifetime = 2'])
+basePythiaParameters.pythia8CommonSettings.extend(['1000015:tau0 = %e' % ctau0])
+basePythiaParameters.pythia8CommonSettings.extend(['ParticleDecays:tau0Max = 3000.1'])
+basePythiaParameters.pythia8CommonSettings.extend(['LesHouches:setLifetime = 2'])
 
-    generator.RandomizedParameters.append(
-        cms.PSet(
-            ConfigWeight = cms.double(wgt),
-            GridpackPath =  cms.string('/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc6_amd64_gcc481/13TeV/madgraph/V5_2.4.2/sus_sms/SMS-TStauStau/v1/SMS-TStauStau_mStau-%i_slc6_amd64_gcc481_CMSSW_7_1_30_tarball.tar.xz' % mstau),
-            ConfigDescription = cms.string('%s_%i_%i_%f' % (model, mstau, mlsp, ctau0)),
-            SLHATableForPythia8 = cms.string('%s' % slhatable),
-            PythiaParameters = basePythiaParameters,
-        ),
-    )
+generator.RandomizedParameters.append(
+    cms.PSet(
+        ConfigWeight = cms.double(wgt),
+        GridpackPath =  cms.string('/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc6_amd64_gcc481/13TeV/madgraph/V5_2.4.2/sus_sms/SMS-TStauStau/v1/SMS-TStauStau_mStau-%i_slc6_amd64_gcc481_CMSSW_7_1_30_tarball.tar.xz' % mstau),
+        ConfigDescription = cms.string('%s_%i_%i_%f' % (model, mstau, mlsp, ctau0)),
+        SLHATableForPythia8 = cms.string('%s' % slhatable),
+        PythiaParameters = basePythiaParameters,
+    ),
+)
 
-    generator.hscpFlavor = cms.untracked.string(FLAVOR)
-    generator.massPoint = cms.untracked.int32(MASS_POINT)
-    generator.SLHAFileForPythia8 = cms.untracked.string(SLHA_FILE)
-    generator.processFile = cms.untracked.string(PROCESS_FILE)
-    generator.particleFile = cms.untracked.string(PARTICLE_FILE)
-    generator.useregge = cms.bool(USE_REGGE)
+generator.hscpFlavor = cms.untracked.string(FLAVOR)
+generator.massPoint = cms.untracked.int32(MASS_POINT)
+generator.SLHAFileForPythia8 = cms.untracked.string(SLHA_FILE)
+generator.processFile = cms.untracked.string(PROCESS_FILE)
+generator.particleFile = cms.untracked.string(PARTICLE_FILE)
+generator.useregge = cms.bool(USE_REGGE)
     

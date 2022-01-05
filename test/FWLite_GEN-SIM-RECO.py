@@ -2,8 +2,24 @@ from DataFormats.FWLite import Events, Handle
 import ROOT
 import numpy as np
 
+def PrintDecay(par, indent, d_indent):
+    print indent + \
+        "+->pdgId:", par.pdgId(), \
+        "pt:", par.pt(), \
+        "vtx rho:", par.vertex().rho(), \
+        "vtx abs:", par.vertex().r(), \
+        "status:", par.status(), "" if par.status()!=8 else "<---"
+    
+
+    daughters = par.daughterRefVector()
+    size = daughters.size()
+    for i, child in enumerate(daughters):
+        s = '|' if i<size-1 else ' '
+        PrintDecay(child, indent + d_indent + "  ", s)
+
 if __name__ == '__main__':
     
+    # files = ['/afs/cern.ch/user/m/myshched/STauGENProduction/test_prod_HNL/EXO-RunIIFall18wmLHEGS-00889.root']
     files = ['/afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18_test/script/SUS-RunIIFall18GS-00022.root']
 
     for f_name in files:
@@ -26,31 +42,39 @@ if __name__ == '__main__':
             gen_particle = handleGEN.product()
 
             for gen in gen_particle:
+                
+                
 
-                if abs(gen.pdgId())==1000015:
+                # if abs(gen.pdgId())==1000015 and gen.statusFlags().isLastCopy():
+                #     PrintDecay(gen,"","")
 
-                    print gen.pdgId(), \
-                        "status:", gen.status()
+                if abs(gen.pdgId())==15 and abs(gen.motherRef().pdgId())!=15:
+                    PrintDecay(gen.motherRef(),"","")
 
-                if abs(gen.pdgId())==15:
+                # if abs(gen.pdgId())==1000015:
 
-                    print gen.pdgId(), \
-                        "pt:", gen.pt(), \
-                        "vtx rho:", gen.vertex().rho(), \
-                        "vtx abs:", gen.vertex().r(), \
-                        "status:", gen.status()
+                #     print gen.pdgId(), \
+                #         "status:", gen.status()
 
-                    for doughter in gen.daughterRefVector():
-                        print "-----> pdgId:", doughter.pdgId(), \
-                            "pt:", doughter.pt(), \
-                            "vtx rho:", doughter.vertex().rho(), \
-                            "vtx abs:", doughter.vertex().r(), \
-                            "status:", doughter.status()
-                        for dd in doughter.daughterRefVector():
-                            print "----------> pdgId:", dd.pdgId(), \
-                                "pt:", dd.pt(), \
-                                "vtx rho:", dd.vertex().rho(), \
-                                "vtx abs:", dd.vertex().r(), \
-                                "status:", doughter.status()
+                # if abs(gen.pdgId())==15:
+
+                #     print gen.pdgId(), \
+                #         "pt:", gen.pt(), \
+                #         "vtx rho:", gen.vertex().rho(), \
+                #         "vtx abs:", gen.vertex().r(), \
+                #         "status:", gen.status()
+
+                #     for doughter in gen.daughterRefVector():
+                #         print "-----> pdgId:", doughter.pdgId(), \
+                #             "pt:", doughter.pt(), \
+                #             "vtx rho:", doughter.vertex().rho(), \
+                #             "vtx abs:", doughter.vertex().r(), \
+                #             "status:", doughter.status()
+                #         for dd in doughter.daughterRefVector():
+                #             print "----------> pdgId:", dd.pdgId(), \
+                #                 "pt:", dd.pt(), \
+                #                 "vtx rho:", dd.vertex().rho(), \
+                #                 "vtx abs:", dd.vertex().r(), \
+                #                 "status:", doughter.status()
 
             raw_input("stop")

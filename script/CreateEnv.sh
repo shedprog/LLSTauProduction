@@ -22,7 +22,7 @@ else
   cd ${ENV_PATH}/CMSSW_10_6_27/src
   eval `scramv1 runtime -sh`
   git cms-addpkg SimG4Core/CustomPhysics/
-  git cms-addpkg Configuration/Generator/
+  git pull my-cmssw CMSSW_10_6_X # fetch and merge fix of HepMC stau handling
 fi
 
 
@@ -67,7 +67,6 @@ else
   cd ${ENV_PATH}/CMSSW_10_2_16_UL/src
   eval `scramv1 runtime -sh`
   git cms-addpkg SimG4Core/CustomPhysics/
-  git cms-addpkg Configuration/Generator/
 fi
 cd ${ENV_PATH}/CMSSW_10_2_16_UL/src
 

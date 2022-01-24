@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename /afs/cern.ch/user/m/myshched/STauGENProduction/LLSTauProduction20UL18/script/../python/SUS-RunIISummer20UL18HLT_cfg.py --eventcontent RAWSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier GEN-SIM-RAW --fileout file:SUS-RunIISummer20UL18HLT-LLStau.root --conditions 102X_upgrade2018_realistic_v15 --customise_commands process.source.bypassVersionCheck = cms.untracked.bool(True) --step HLT:2018v32 --geometry DB:Extended --filein file:SUS-RunIIAutumn18DRPremix-LLStau.root --era Run2_2018 --no_exec --mc -n 20
+# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia/LLSTauProduction/script/../python/SUS-RunIISummer20UL18HLT_cfg.py --eventcontent RAWSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier GEN-SIM-RAW --fileout file:SUS-RunIISummer20UL18HLT-LLStau.root --conditions 102X_upgrade2018_realistic_v15 --customise_commands process.source.bypassVersionCheck = cms.untracked.bool(True) --step HLT:2018v32 --geometry DB:Extended --filein file:SUS-RunIIAutumn18DRPremix-LLStau.root --era Run2_2018 --no_exec --mc -n 20
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras

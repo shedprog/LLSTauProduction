@@ -43,7 +43,7 @@ cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fr
   --conditions 106X_upgrade2018_realistic_v11_L1v1 \
   --beamspot Realistic25ns13TeVEarly2018Collision \
   --customise_commands "process.RandomNumberGeneratorService.externalLHEProducer.initialSeed=int(1)\nprocess.source.numberEventsInLuminosityBlock=cms.untracked.uint32(100)" \
-  --step LHE,GEN,SIM \
+  --step GEN,SIM \
   --geometry DB:Extended \
   --era Run2_2018 \
   --no_exec --mc -n 20 || exit $? ;

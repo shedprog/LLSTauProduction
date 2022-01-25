@@ -35,7 +35,7 @@ def PrintDecay(par, indent, d_indent, sim_obj):
 
 if __name__ == '__main__':
     
-    files = ['../script/SUS-RunIIFall18GS-00022_fix_final.root']
+    files = ['../script/SUS-RunIISummer20UL18wmLHEGEN-LLStau.root']
 
     for f_name in files:
         
@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
         # Gen par info
         handleGEN = Handle('std::vector<reco::GenParticle>')
-        labelGEN = 'genParticles'
+        labelGEN = 'genParticlePlusGeant'
 
         # Tracks info part
         handleTracks = Handle('std::vector<SimTrack>')

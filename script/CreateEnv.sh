@@ -23,6 +23,7 @@ else
   eval `scramv1 runtime -sh`
   git cms-addpkg SimG4Core/CustomPhysics/
   git pull my-cmssw CMSSW_10_6_X # fetch and merge fix of HepMC stau handling
+  git cms-addpkg SimG4Core/Generators
 fi
 
 

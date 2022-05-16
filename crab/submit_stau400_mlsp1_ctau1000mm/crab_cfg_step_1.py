@@ -4,12 +4,12 @@ from WMCore.Configuration import Configuration
 config = Configuration()
 
 config.section_("General")
-config.General.requestName = 'SUS-RunIISummer20UL18GEN-stau400_lsp1_ctau1000mm_v4'
+config.General.requestName = 'SUS-RunIISummer20UL18GEN-stau400_lsp1_ctau100mm_v4'
 config.General.workArea = 'crab_projects'
 
 config.section_("JobType")
 config.JobType.pluginName = 'PrivateMC'
-config.JobType.psetName = '../../python/SUS-RunIISummer20UL18wmLHEGEN-stau400_lsp1_ctau1000mm_cfg.py'
+config.JobType.psetName = '../../python/SUS-RunIISummer20UL18wmLHEGEN-stau400_lsp1_ctau100mm_cfg.py'
 
 config.JobType.maxJobRuntimeMin = 20*60
 config.JobType.maxMemoryMB = 2000

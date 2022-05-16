@@ -21,7 +21,7 @@ else
   exit 1
 fi
 
-cmsRun -e -j SUS-RunIISummer20UL18wmLHEGEN_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18wmLHEGEN-stau100_lsp1_ctau1000mm_cfg.py || exit $? ;
+cmsRun -e -j SUS-RunIISummer20UL18wmLHEGEN_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18wmLHEGEN-stau100_lsp1_ctau100mm_cfg.py || exit $? ;
 
 cmsRun -e -j SUS-RunIISummer20UL18DIGIPremix_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18DIGIPremix_cfg.py || exit $? ;
 

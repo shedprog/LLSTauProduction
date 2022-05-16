@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia/LLSTauProduction/script/../python/SUS-RunIISummer20UL18MiniAODv2_cfg.py --eventcontent MINIAODSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier MINIAODSIM --fileout file:SUS-RunIISummer20UL18MiniAODv2-LLStau.root --conditions 106X_upgrade2018_realistic_v16_L1v1 --step PAT --procModifiers run2_miniAOD_UL --geometry DB:Extended --filein file:SUS-RunIISummer20UL18RECO-LLStau.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 20
+# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia_100cm/LLSTauProduction/script/../python/SUS-RunIISummer20UL18MiniAODv2_cfg.py --eventcontent MINIAODSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier MINIAODSIM --fileout file:SUS-RunIISummer20UL18MiniAODv2-LLStau.root --conditions 106X_upgrade2018_realistic_v16_L1v1 --step PAT --procModifiers run2_miniAOD_UL --geometry DB:Extended --filein file:SUS-RunIISummer20UL18RECO-LLStau.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 20
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2018_cff import Run2_2018

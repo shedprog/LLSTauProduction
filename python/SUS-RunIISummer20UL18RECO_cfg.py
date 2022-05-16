@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia/LLSTauProduction/script/../python/SUS-RunIISummer20UL18RECO_cfg.py --eventcontent AODSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier AODSIM --fileout file:SUS-RunIISummer20UL18RECO-LLStau.root --conditions 106X_upgrade2018_realistic_v11_L1v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM,EI --geometry DB:Extended --filein file:SUS-RunIISummer20UL18HLT-LLStau.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 20
+# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia_100cm/LLSTauProduction/script/../python/SUS-RunIISummer20UL18RECO_cfg.py --eventcontent AODSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier AODSIM --fileout file:SUS-RunIISummer20UL18RECO-LLStau.root --conditions 106X_upgrade2018_realistic_v11_L1v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM,EI --geometry DB:Extended --filein file:SUS-RunIISummer20UL18HLT-LLStau.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 20
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2018_cff import Run2_2018

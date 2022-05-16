@@ -25,7 +25,7 @@ hBarCinGeVmm = 1.973269788e-13
 
 mstau_list = [100,250,400]
 mlsp_list  = [1, 20]
-ctau0_list  = [1000]
+ctau0_list  = [100]
 
 grid = list(product(*[mstau_list, mlsp_list, ctau0_list]))
 print "create:",len(grid),"files"

@@ -22,7 +22,10 @@ else
   cd ${ENV_PATH}/CMSSW_10_6_27/src
   eval `scramv1 runtime -sh`
   git cms-addpkg SimG4Core/CustomPhysics/
-  git pull my-cmssw CMSSW_10_6_X # fetch and merge fix of HepMC stau handling
+  # git pull my-cmssw CMSSW_10_6_X # fetch and merge fix of HepMC stau handling
+  git remote add fix_pr git@github.com:shedprog/cmssw.git
+  git fetch fix_pr CMSSW_10_6_X
+  git checkout fix_pr/CMSSW_10_6_X
   git cms-addpkg SimG4Core/Generators
 fi
 
@@ -44,7 +47,7 @@ source ${ABS_PATH}/CrossSection.sh
 mkdir -p ${ENV_PATH}/CMSSW_10_6_27/src/Configuration/GenProduction/python
 STAU_MASS_POINTS=(100 250 400) #GeV
 LSP_MASS_POINTS=(1) #GeV
-CTAU_POINTS=(1000) #mm
+CTAU_POINTS=(100) #mm
 for MASS in ${STAU_MASS_POINTS[@]}; do
 for LSP in ${LSP_MASS_POINTS[@]}; do
 for CTAU in ${CTAU_POINTS[@]}; do

@@ -1,5 +1,8 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
+import commands
+username = commands.getoutput("whoami")
+
 from WMCore.Configuration import Configuration
 config = Configuration()
 
@@ -21,7 +24,7 @@ config.Data.splitting = 'EventBased'#'EventAwareLumiBased'
 config.Data.unitsPerJob = 1000 #number of events per jobs
 config.Data.totalUnits = 2000000 #number of event
 # config.Data.totalUnits = 10#number of event for testing
-config.Data.outLFNDirBase = '/store/user/myshched/mc/UL2018-pythia-v4'
+config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v4' %(username)
 config.Data.publication = True
 config.Data.outputDatasetTag = 'GENSIM'
 

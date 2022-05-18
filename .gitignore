@@ -1,0 +1,10 @@
+*.pyc
+*.root
+*__pycache__*
+*~
+.#*
+.*.swp
+*.log
+*.xml
+envs/
+crab_projects/

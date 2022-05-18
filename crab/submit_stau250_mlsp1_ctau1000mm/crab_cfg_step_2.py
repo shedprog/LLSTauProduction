@@ -1,5 +1,8 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
+import commands
+username = commands.getoutput("whoami")
+
 from WMCore.Configuration import Configuration
 config = Configuration()
 
@@ -23,7 +26,7 @@ config.Data.splitting = 'FileBased'#'Automatic' #'EventBased'#'EventAwareLumiBas
 config.Data.unitsPerJob = 1 #number of events per jobs
 # config.Data.totalUnits = 500 #number of event
 
-config.Data.outLFNDirBase = '/store/user/myshched/mc/UL2018-pythia-v4/SUS-RunIISummer20UL18GEN-stau250_lsp1_ctau100mm_v4'
+config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v4' %(username)
 config.Data.publication = True
 config.Data.outputDatasetTag = 'PREMIXRAW'
 

@@ -1,0 +1,8 @@
+*.pyc
+*.root
+*__pycache__*
+*~
+.#*
+.*.swp
+envs/
+crab_projects/

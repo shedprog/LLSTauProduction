@@ -1,5 +1,8 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
+import commands
+username = commands.getoutput("whoami")
+
 from WMCore.Configuration import Configuration
 config = Configuration()
 
@@ -22,7 +25,7 @@ config.Data.inputDBS = 'phys03'
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 
-config.Data.outLFNDirBase = '/store/user/myshched/mc/UL2018-pythia-v4'
+config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v4' %(username)
 config.Data.publication = True
 config.Data.outputDatasetTag = 'HLT'
 

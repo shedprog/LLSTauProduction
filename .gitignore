@@ -4,5 +4,6 @@
 *~
 .#*
 .*.swp
+*.log
 envs/
 crab_projects/

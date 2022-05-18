@@ -31,8 +31,8 @@ For the tests it is possible to run production (few events) locally with:
 For the public grid submission the corresponding environments to be used:
 ```sh
 > crab submit -c ./crab_cfg_step_1.py # CMSSW_10_6_27
-> crab submit -c ./crab_cfg_step_1.py # CMSSW_10_6_27
-> crab submit -c ./crab_cfg_step_1.py # CMSSW_10_2_16_UL
-> crab submit -c ./crab_cfg_step_1.py # CMSSW_10_6_27
-> crab submit -c ./crab_cfg_step_1.py # CMSSW_10_6_27
+> crab submit -c ./crab_cfg_step_2.py # CMSSW_10_6_27
+> crab submit -c ./crab_cfg_step_3.py # CMSSW_10_2_16_UL
+> crab submit -c ./crab_cfg_step_4.py # CMSSW_10_6_27
+> crab submit -c ./crab_cfg_step_5.py # CMSSW_10_6_27
 ```

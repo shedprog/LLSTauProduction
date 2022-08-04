@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia_100cm/LLSTauProduction/script/../python/SUS-RunIISummer20UL18HLT_cfg.py --eventcontent RAWSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier GEN-SIM-RAW --fileout file:SUS-RunIISummer20UL18HLT-LLStau.root --conditions 102X_upgrade2018_realistic_v15 --customise_commands process.source.bypassVersionCheck = cms.untracked.bool(True) --step HLT:2018v32 --geometry DB:Extended --filein file:SUS-RunIIAutumn18DRPremix-LLStau.root --era Run2_2018 --no_exec --mc -n 20
+# with command line options: --python_filename /afs/cern.ch/work/s/sobhatta/private/LongLivedStaus/test_forMCrequest_2/LLSTauProduction/script/../python/SUS-RunIISummer20UL18HLT_cfg.py --eventcontent RAWSIM --outputCommand keep *_genParticlePlusGeant_*_*,keep *_packedGenParticlePlusGeant_*_*,keep *_prunedGenParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/GenPlusSimParticles_cfi.customizeKeep,SimG4Core/CustomPhysics/GenPlusSimParticles_cfi.customizeProduce --datatier GEN-SIM-RAW --fileout file:SUS-RunIISummer20UL18HLT-LLStau.root --conditions 102X_upgrade2018_realistic_v15 --customise_commands process.source.bypassVersionCheck = cms.untracked.bool(True) --step HLT:2018v32 --geometry DB:Extended --filein file:SUS-RunIIAutumn18DRPremix-LLStau.root --era Run2_2018 --no_exec --mc -n 20
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.StandardSequences.Eras import eras
@@ -63,6 +63,8 @@ process.RAWSIMoutput = cms.OutputModule("PoolOutputModule",
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '102X_upgrade2018_realistic_v15', '')
 process.RAWSIMoutput.outputCommands.append('keep *_genParticlePlusGeant_*_*')
+process.RAWSIMoutput.outputCommands.append('keep *_packedGenParticlePlusGeant_*_*')
+process.RAWSIMoutput.outputCommands.append('keep *_prunedGenParticlePlusGeant_*_*')
 
 # Path and EndPath definitions
 process.endjob_step = cms.EndPath(process.endOfProcess)
@@ -83,13 +85,13 @@ from Configuration.DataProcessing.Utils import addMonitoring
 #call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
 process = addMonitoring(process)
 
-# Automatic addition of the customisation function from SimG4Core.CustomPhysics.genParticlePlusGeant
-from SimG4Core.CustomPhysics.genParticlePlusGeant import customizeKeep,customizeProduce 
+# Automatic addition of the customisation function from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
+from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi import customizeKeep,customizeProduce 
 
-#call to customisation function customizeKeep imported from SimG4Core.CustomPhysics.genParticlePlusGeant
+#call to customisation function customizeKeep imported from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
 process = customizeKeep(process)
 
-#call to customisation function customizeProduce imported from SimG4Core.CustomPhysics.genParticlePlusGeant
+#call to customisation function customizeProduce imported from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
 process = customizeProduce(process)
 
 # Automatic addition of the customisation function from HLTrigger.Configuration.customizeHLTforMC

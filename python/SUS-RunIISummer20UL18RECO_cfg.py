@@ -2,7 +2,7 @@
 # using: 
 # Revision: 1.19 
 # Source: /local/reps/CMSSW/CMSSW/Configuration/Applications/python/ConfigBuilder.py,v 
-# with command line options: --python_filename /afs/cern.ch/work/m/myshched/GEN-STAU/LLSTauProduction20UL18_pythia_100cm/LLSTauProduction/script/../python/SUS-RunIISummer20UL18RECO_cfg.py --eventcontent AODSIM --outputCommand keep *_genParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeKeep,SimG4Core/CustomPhysics/genParticlePlusGeant.customizeProduce --datatier AODSIM --fileout file:SUS-RunIISummer20UL18RECO-LLStau.root --conditions 106X_upgrade2018_realistic_v11_L1v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM,EI --geometry DB:Extended --filein file:SUS-RunIISummer20UL18HLT-LLStau.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 20
+# with command line options: --python_filename /afs/cern.ch/work/s/sobhatta/private/LongLivedStaus/test_forMCrequest_2/LLSTauProduction/script/../python/SUS-RunIISummer20UL18RECO_cfg.py --eventcontent AODSIM --outputCommand keep *_genParticlePlusGeant_*_*,keep *_packedGenParticlePlusGeant_*_*,keep *_prunedGenParticlePlusGeant_*_* --customise Configuration/DataProcessing/Utils.addMonitoring,SimG4Core/CustomPhysics/GenPlusSimParticles_cfi.customizeKeep,SimG4Core/CustomPhysics/GenPlusSimParticles_cfi.customizeProduce --datatier AODSIM --fileout file:SUS-RunIISummer20UL18RECO-LLStau.root --conditions 106X_upgrade2018_realistic_v11_L1v1 --step RAW2DIGI,L1Reco,RECO,RECOSIM,EI --geometry DB:Extended --filein file:SUS-RunIISummer20UL18HLT-LLStau.root --era Run2_2018 --runUnscheduled --no_exec --mc -n 20
 import FWCore.ParameterSet.Config as cms
 
 from Configuration.Eras.Era_Run2_2018_cff import Run2_2018
@@ -66,6 +66,8 @@ process.AODSIMoutput = cms.OutputModule("PoolOutputModule",
 from Configuration.AlCa.GlobalTag import GlobalTag
 process.GlobalTag = GlobalTag(process.GlobalTag, '106X_upgrade2018_realistic_v11_L1v1', '')
 process.AODSIMoutput.outputCommands.append('keep *_genParticlePlusGeant_*_*')
+process.AODSIMoutput.outputCommands.append('keep *_packedGenParticlePlusGeant_*_*')
+process.AODSIMoutput.outputCommands.append('keep *_prunedGenParticlePlusGeant_*_*')
 
 # Path and EndPath definitions
 process.raw2digi_step = cms.Path(process.RawToDigi)
@@ -89,13 +91,13 @@ from Configuration.DataProcessing.Utils import addMonitoring
 #call to customisation function addMonitoring imported from Configuration.DataProcessing.Utils
 process = addMonitoring(process)
 
-# Automatic addition of the customisation function from SimG4Core.CustomPhysics.genParticlePlusGeant
-from SimG4Core.CustomPhysics.genParticlePlusGeant import customizeKeep,customizeProduce 
+# Automatic addition of the customisation function from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
+from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi import customizeKeep,customizeProduce 
 
-#call to customisation function customizeKeep imported from SimG4Core.CustomPhysics.genParticlePlusGeant
+#call to customisation function customizeKeep imported from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
 process = customizeKeep(process)
 
-#call to customisation function customizeProduce imported from SimG4Core.CustomPhysics.genParticlePlusGeant
+#call to customisation function customizeProduce imported from SimG4Core.CustomPhysics.GenPlusSimParticles_cfi
 process = customizeProduce(process)
 
 # End of customisation functions

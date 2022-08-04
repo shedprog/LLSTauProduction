@@ -3,7 +3,7 @@ COM_ENERGY = 13000. # GeV
 MASS_POINT = STAU_MASS_XXX   # GeV
 MASS_LSP = LSP_MASS_XXX  # GeV
 # https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVslepslep#NLO_NLL_any_single_generation_su
-CROSS_SECTION = XSEC_XXX # pb
+#CROSS_SECTION = XSEC_XXX # pb
 CTAU0_POINT = CTAU_XXX # mm
 PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
 PARTICLE_FILE = ("data/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(MASS_POINT, MASS_LSP, CTAU0_POINT))
@@ -131,7 +131,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
      pythiaPylistVerbosity = cms.untracked.int32(1),
      filterEfficiency = cms.untracked.double(1.0),
      pythiaHepMCVerbosity = cms.untracked.bool(False),
-     crossSection = cms.untracked.double(CROSS_SECTION),
+     #crossSection = cms.untracked.double(CROSS_SECTION),
      comEnergy = cms.double(COM_ENERGY),
      GridpackPath =  cms.string(GRIDPACK),
      ConfigDescription = cms.string('%s_%i_%i_%f' % (model, MASS_POINT, MASS_LSP, CTAU0_POINT)),

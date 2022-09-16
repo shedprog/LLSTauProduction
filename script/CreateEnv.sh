@@ -21,12 +21,21 @@ else
 
   cd ${ENV_PATH}/CMSSW_10_6_30_patch1/src
   eval `scramv1 runtime -sh`
-  #git cms-addpkg SimG4Core/CustomPhysics
-  # git pull my-cmssw CMSSW_10_6_X # fetch and merge fix of HepMC stau handling
-  #git remote add fix_pr git@github.com:shedprog/cmssw.git
-  #git fetch fix_pr CMSSW_10_6_X
-  #git checkout fix_pr/CMSSW_10_6_X
-  #git cms-addpkg SimG4Core/Generators
+
+  git cms-addpkg SimG4Core/Generators
+  git remote add REMOTE_WITH_FIX https://github.com/shedprog/cmssw.git
+  git fetch REMOTE_WITH_FIX from-CMSSW_10_6_30_patch1-hard-stau-fix
+  git checkout -b FIXED_BR REMOTE_WITH_FIX/from-CMSSW_10_6_30_patch1-hard-stau-fix
+
+  # Check if fix was applied:
+  LINE_FIX=`sed -n 380p SimG4Core/Generators/src/Generator.cc`
+  if [[ $LINE_FIX == *"1000015"* ]]; then
+    echo ">>> FIX is applied!"
+  else
+    echo "Error: FIX is not applied! git checkout should be fixed"
+    exit 1
+  fi
+
 fi
 
 

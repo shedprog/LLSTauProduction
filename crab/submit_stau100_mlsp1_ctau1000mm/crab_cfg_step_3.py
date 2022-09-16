@@ -7,7 +7,7 @@ from WMCore.Configuration import Configuration
 config = Configuration()
 
 config.section_("General")
-config.General.requestName = 'SUS-RunIISummer20UL18HLT-stau100_lsp1_ctau100mm_v4'
+config.General.requestName = 'SUS-RunIISummer20UL18HLT-stau100_lsp1_ctau100mm_v6'
 config.General.workArea = 'crab_projects'
 
 config.section_("JobType")
@@ -25,7 +25,7 @@ config.Data.inputDBS = 'phys03'
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 
-config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v4' %(username)
+config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v6' %(username)
 config.Data.publication = True
 config.Data.outputDatasetTag = 'HLT'
 

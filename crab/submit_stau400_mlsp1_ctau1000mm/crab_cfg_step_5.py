@@ -4,7 +4,7 @@ from WMCore.Configuration import Configuration
 config = Configuration()
 
 config.section_("General")
-config.General.requestName = 'SUS-RunIISummer20UL18MiniAOD-stau400_lsp1_ctau100mm_v4'
+config.General.requestName = 'SUS-RunIISummer20UL18MiniAOD-stau400_lsp1_ctau100mm_v6'
 config.General.workArea = 'crab_projects'
 
 config.section_("JobType")
@@ -22,7 +22,7 @@ config.Data.inputDBS = 'phys03'
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 
-config.Data.outLFNDirBase = '/store/user/myshched/mc/UL2018-pythia-v4'
+config.Data.outLFNDirBase = '/store/user/myshched/mc/UL2018-pythia-v6'
 config.Data.publication = True
 config.Data.outputDatasetTag = 'MiniAOD'
 

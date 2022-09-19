@@ -21,8 +21,8 @@ config.section_("Data")
 config.Data.inputDBS = 'global'
 config.Data.outputPrimaryDataset = 'SUS-RunIISummer20UL18GEN-stau400_lsp1_ctau100mm_v6'
 config.Data.splitting = 'EventBased'#'EventAwareLumiBased'
-config.Data.unitsPerJob = 1000 #number of events per jobs
-config.Data.totalUnits = 2000000 #number of event
+config.Data.unitsPerJob = 2000 #number of events per jobs
+config.Data.totalUnits = 4000000 #number of event
 # config.Data.totalUnits = 10#number of event for testing
 config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v6' %(username)
 config.Data.publication = True

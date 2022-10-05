@@ -1,7 +1,9 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
 import commands
-username = commands.getoutput("whoami")
+username = from CRABClient.UserUtilities import getUsernameFromCRIC
+
+username = getUsernameFromCRIC()
 
 from WMCore.Configuration import Configuration
 config = Configuration()

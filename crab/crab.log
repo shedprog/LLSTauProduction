@@ -1,0 +1,71 @@
+DEBUG 2022-09-19 14:08:39.885 UTC: 	 CRAB Client version: v3.220823
+DEBUG 2022-09-19 14:08:39.885 UTC: 	 Running on: Linux lxplus789.cern.ch 3.10.0-1160.76.1.el7.x86_64 #1 SMP Wed Aug 10 16:21:17 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-09-19 14:08:39.885 UTC: 	 Executing command: 'checkwrite'
+DEBUG 2022-09-19 14:08:39.885 UTC: 	 Found CRAB cache file /afs/cern.ch/user/s/sobhatta/.crab3
+DEBUG 2022-09-19 14:08:39.886 UTC: 	 Checking credentials
+DEBUG 2022-09-19 14:08:39.886 UTC: 	 Found proxy file /afs/cern.ch/user/s/sobhatta/proxies/x509up_u84631
+DEBUG 2022-09-19 14:08:39.886 UTC: 	 Making sure it has proper VOMS extension
+DEBUG 2022-09-19 14:08:39.886 UTC: 	 Executing command :
+ voms-proxy-info --vo --file /afs/cern.ch/user/s/sobhatta/proxies/x509up_u84631
+DEBUG 2022-09-19 14:08:41.105 UTC: 	 output : cms
+
+ error: 
+ retcode : 0
+DEBUG 2022-09-19 14:08:41.105 UTC: 	 Getting proxy life time left
+DEBUG 2022-09-19 14:08:41.105 UTC: 	 Executing command :
+ voms-proxy-info --actimeleft --timeleft --file /afs/cern.ch/user/s/sobhatta/proxies/x509up_u84631
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 output : 687573
+687573
+
+ error: 
+ retcode : 0
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Proxy valid for 190:59:33 hours
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Command use: checkwrite
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Options use: ['--site', 'T2_DE_DESY']
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Instance is None
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Server base url is None
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Retrieving username ...
+DEBUG 2022-09-19 14:08:41.927 UTC: 	 Retrieving username from CRIC...
+DEBUG 2022-09-19 14:08:42.954 UTC: 	 username is sobhatta
+INFO 2022-09-19 14:08:42.954 UTC: 	 Will check write permission in the default location /store/user/<username>
+INFO 2022-09-19 14:08:42.954 UTC: 	 Validating LFN /store/user/sobhatta...
+INFO 2022-09-19 14:08:42.954 UTC: 	 LFN /store/user/sobhatta is valid.
+INFO 2022-09-19 14:08:43.365 UTC: 	 Will use `gfal-copy`, `gfal-rm` commands for checking write permissions
+INFO 2022-09-19 14:08:43.365 UTC: 	 Will check write permission in /store/user/sobhatta on site T2_DE_DESY
+INFO 2022-09-19 14:09:13.154 UTC: 	 Will use PFN: davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/crab3checkwrite_20220919_160843.tmp
+INFO 2022-09-19 14:09:13.155 UTC: 	 
+Attempting to create (dummy) directory crab3checkwrite_20220919_160843 and copy (dummy) file crab3checkwrite_20220919_160843.tmp to /store/user/sobhatta
+
+INFO 2022-09-19 14:09:13.161 UTC: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-copy -p -v -t 180 file:///afs/cern.ch/work/s/sobhatta/private/LongLivedStaus/LLSTauProduction/crab/crab3checkwrite_20220919_160843.tmp 'davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/crab3checkwrite_20220919_160843.tmp'
+INFO 2022-09-19 14:09:13.161 UTC: 	 Please wait...
+INFO 2022-09-19 14:09:16.083 UTC: 	 
+Successfully created directory crab3checkwrite_20220919_160843 and copied file crab3checkwrite_20220919_160843.tmp to /store/user/sobhatta
+INFO 2022-09-19 14:09:16.083 UTC: 	 
+Attempting to delete file davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/crab3checkwrite_20220919_160843.tmp
+
+INFO 2022-09-19 14:09:16.083 UTC: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -v -t 180 'davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/crab3checkwrite_20220919_160843.tmp'
+INFO 2022-09-19 14:09:16.083 UTC: 	 Please wait...
+INFO 2022-09-19 14:09:17.216 UTC: 	 
+Successfully deleted file davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/crab3checkwrite_20220919_160843.tmp
+INFO 2022-09-19 14:09:17.216 UTC: 	 
+Attempting to delete directory davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/
+
+INFO 2022-09-19 14:09:17.216 UTC: 	 Executing command: which scram >/dev/null 2>&1 && eval `scram unsetenv -sh`; gfal-rm -r -v -t 180 'davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/'
+INFO 2022-09-19 14:09:17.216 UTC: 	 Please wait...
+INFO 2022-09-19 14:09:18.588 UTC: 	 
+Successfully deleted directory davs://dcache-cms-webdav-wan.desy.de:2880/pnfs/desy.de/cms/tier2/store/user/sobhatta/crab3checkwrite_20220919_160843/
+INFO 2022-09-19 14:09:18.731 UTC: 	 
+Checkwrite Result:
+INFO 2022-09-19 14:09:18.732 UTC: 	 Success: Able to write in /store/user/sobhatta on site T2_DE_DESY
+DEBUG 2022-09-22 16:38:25.092 UTC: 	 CRAB Client version: v3.220823
+DEBUG 2022-09-22 16:38:25.092 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-09-22 16:38:25.092 UTC: 	 Executing command: 'resubmit'
+DEBUG 2022-09-22 16:38:25.092 UTC: 	 Found CRAB cache file /afs/cern.ch/user/s/sobhatta/.crab3
+DEBUG 2022-09-22 16:38:26.581 UTC: 	 CRAB Client version: v3.220823
+DEBUG 2022-09-22 16:38:26.582 UTC: 	 Running on: Linux lxplus754.cern.ch 3.10.0-1160.66.1.el7.x86_64 #1 SMP Wed May 18 16:02:34 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-09-22 16:38:26.582 UTC: 	 Executing command: 'resubmit'
+DEBUG 2022-09-22 16:38:26.582 UTC: 	 Found CRAB cache file /afs/cern.ch/user/s/sobhatta/.crab3
+DEBUG 2022-09-23 10:06:03.440 UTC: 	 CRAB Client version: v3.220823
+DEBUG 2022-09-23 10:06:03.441 UTC: 	 Running on: Linux lxplus797.cern.ch 3.10.0-1160.76.1.el7.x86_64 #1 SMP Wed Aug 10 16:21:17 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux - CentOS Linux 7 (Core)
+DEBUG 2022-09-23 10:06:03.441 UTC: 	 Executing command: 'resubmit'
+DEBUG 2022-09-23 10:06:03.441 UTC: 	 Found CRAB cache file /afs/cern.ch/user/s/sobhatta/.crab3

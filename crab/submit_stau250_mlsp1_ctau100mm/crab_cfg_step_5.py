@@ -1,7 +1,9 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
 import commands
-username = commands.getoutput("whoami")
+username = from CRABClient.UserUtilities import getUsernameFromCRIC
+
+username = getUsernameFromCRIC()
 
 from WMCore.Configuration import Configuration
 config = Configuration()
@@ -19,7 +21,7 @@ config.JobType.maxMemoryMB = 2500
 
 config.section_("Data")
 
-config.Data.inputDataset = ''
+config.Data.inputDataset = '/SUS-RunIISummer20UL18GEN-stau250_lsp1_ctau100mm_v6/sobhatta-RECO-1a2a8efe82f5ce56cfcbf6dbf5abbe49/USER'
 config.Data.inputDBS = 'phys03'
 
 config.Data.splitting = 'FileBased'

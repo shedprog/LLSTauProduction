@@ -1,6 +1,10 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
 from WMCore.Configuration import Configuration
+from CRABClient.UserUtilities import getUsernameFromCRIC
+
+username = getUsernameFromCRIC()
+
 config = Configuration()
 
 config.section_("General")
@@ -16,13 +20,13 @@ config.JobType.maxMemoryMB = 2500
 
 config.section_("Data")
 
-config.Data.inputDataset = ''
+config.Data.inputDataset = '/SUS-RunIISummer20UL18GEN-stau400_lsp1_ctau100mm_v6/sobhatta-RECO-1a2a8efe82f5ce56cfcbf6dbf5abbe49/USER'
 config.Data.inputDBS = 'phys03'
 
 config.Data.splitting = 'FileBased'
 config.Data.unitsPerJob = 1
 
-config.Data.outLFNDirBase = '/store/user/myshched/mc/UL2018-pythia-v6'
+config.Data.outLFNDirBase = '/store/user/%s/mc/UL2018-pythia-v6' %(username)
 config.Data.publication = True
 config.Data.outputDatasetTag = 'MiniAOD'
 

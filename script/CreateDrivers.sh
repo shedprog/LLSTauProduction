@@ -14,13 +14,13 @@ source /cvmfs/cms.cern.ch/cmsset_default.sh
 export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 export SCRAM_ARCH=slc7_amd64_gcc700
 
-if [ -r ${ENV_PATH}/CMSSW_10_6_30_patch1/src ] ; then
-  echo "CMSSW_10_6_30_patch1 exists"
-  cd ${ENV_PATH}/CMSSW_10_6_30_patch1/src
+if [ -r ${ENV_PATH}/CMSSW_10_6_31/src ] ; then
+  echo "CMSSW_10_6_31 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_31/src
   eval `scramv1 runtime -sh` # the same as cmsenv
   cd -
 else
-  echo "CMSSW_10_6_30_patch1 does not exist"
+  echo "CMSSW_10_6_31 does not exist"
   exit 1
 fi
 
@@ -32,6 +32,8 @@ CTAU_POINTS=(100) #mm
 for MASS in ${STAU_MASS_POINTS[@]}; do
 for LSP in ${LSP_MASS_POINTS[@]}; do
 for CTAU in ${CTAU_POINTS[@]}; do
+
+EVENTS=1500
 
 echo "Creating cmsDrive for GEN-SIM, Create for mstau:${MASS}, mlsp:${LSP}, ctau:${CTAU}mm"
 cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py \
@@ -47,19 +49,20 @@ cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fr
   --step GEN,SIM \
   --geometry DB:Extended \
   --era Run2_2018 \
-  --no_exec --mc -n 20 || exit $? ;
+  --procModifiers run2_final_state_rad \
+  --no_exec --mc -n $EVENTS || exit $? ;
 
 done
 done
 done
 
-if [ -r ${ENV_PATH}/CMSSW_10_6_30_patch1/src ] ; then
-  echo "CMSSW_10_6_30_patch1 exists"
-  cd ${ENV_PATH}/CMSSW_10_6_30_patch1/src
+if [ -r ${ENV_PATH}/CMSSW_10_6_31/src ] ; then
+  echo "CMSSW_10_6_31 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_31/src
   eval `scramv1 runtime -sh` # the same as cmsenv
   cd -
 else
-  echo "CMSSW_10_6_30_patch1 does not exist"
+  echo "CMSSW_10_6_31 does not exist"
   exit 1
 fi
 
@@ -76,8 +79,9 @@ cmsDriver.py  --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18DIGIPremix
   --procModifiers premix_stage2 \
   --geometry DB:Extended \
   --filein file:SUS-RunIISummer20UL18wmLHEGEN-LLStau.root \
-  --datamix PreMix --era Run2_2018 \
-  --no_exec --mc  -n 20 || exit $? ;
+  --datamix PreMix \
+  --era Run2_2018 \
+  --no_exec --mc  -n -1 || exit $? ;
 
 if [ -r ${ENV_PATH}/CMSSW_10_2_16_UL/src ] ; then
   echo "CMSSW_10_2_16_UL exists"
@@ -101,15 +105,15 @@ cmsDriver.py  --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18HLT_cfg.py
   --step HLT:2018v32 \
   --geometry DB:Extended \
   --filein file:SUS-RunIIAutumn18DRPremix-LLStau.root \
-  --era Run2_2018 --no_exec --mc -n 20|| exit $? ;
+  --era Run2_2018 --no_exec --mc -n -1 || exit $? ;
 
-if [ -r ${ENV_PATH}/CMSSW_10_6_30_patch1/src ] ; then
-  echo "CMSSW_10_6_30_patch1 exists"
-  cd ${ENV_PATH}/CMSSW_10_6_30_patch1/src
+if [ -r ${ENV_PATH}/CMSSW_10_6_31/src ] ; then
+  echo "CMSSW_10_6_31 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_31/src
   eval `scramv1 runtime -sh` # the same as cmsenv
   cd -
 else
-  echo "CMSSW_10_6_30_patch1 does not exist"
+  echo "CMSSW_10_6_31 does not exist"
   exit 1
 fi
 
@@ -127,15 +131,15 @@ cmsDriver.py  --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18RECO_cfg.p
   --geometry DB:Extended \
   --filein file:SUS-RunIISummer20UL18HLT-LLStau.root \
   --era Run2_2018 --runUnscheduled \
-  --no_exec --mc -n 20 || exit $? ;
+  --no_exec --mc -n -1 || exit $? ;
 
-if [ -r ${ENV_PATH}/CMSSW_10_6_30_patch1/src ] ; then
-  echo "CMSSW_10_6_30_patch1 exists"
-  cd ${ENV_PATH}/CMSSW_10_6_30_patch1/src
+if [ -r ${ENV_PATH}/CMSSW_10_6_31/src ] ; then
+  echo "CMSSW_10_6_31 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_31/src
   eval `scramv1 runtime -sh` # the same as cmsenv
   cd -
 else
-  echo "CMSSW_10_6_30_patch1 does not exist"
+  echo "CMSSW_10_6_31 does not exist"
   exit 1
 fi
 
@@ -151,4 +155,4 @@ cmsDriver.py  --python_filename ${OUTDIR}/python/SUS-RunIISummer20UL18MiniAODv2_
 --geometry DB:Extended \
 --filein file:SUS-RunIISummer20UL18RECO-LLStau.root\
  --era Run2_2018 --runUnscheduled \
- --no_exec --mc -n 20 || exit $? ;
+ --no_exec --mc -n -1 || exit $? ;

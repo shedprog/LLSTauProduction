@@ -11,13 +11,13 @@ source /cvmfs/cms.cern.ch/cmsset_default.sh
 export CMSSW_GIT_REFERENCE=/cvmfs/cms.cern.ch/cmssw.git.daily
 export SCRAM_ARCH=slc7_amd64_gcc700
 
-if [ -r ${ENV_PATH}/CMSSW_10_6_31/src ] ; then
-  echo "CMSSW_10_6_31 exists"
-  cd ${ENV_PATH}/CMSSW_10_6_31/src
+if [ -r ${ENV_PATH}/CMSSW_10_6_31_patch1/src ] ; then
+  echo "CMSSW_10_6_31_patch1 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_31_patch1/src
   eval `scramv1 runtime -sh` # the same as cmsenv
   cd -
 else
-  echo "CMSSW_10_6_31 does not exist"
+  echo "CMSSW_10_6_31_patch1 does not exist"
   exit 1
 fi
 
@@ -37,13 +37,13 @@ fi
 
 cmsRun -e -j SUS-RunIISummer20UL18HLT_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18HLT_cfg.py || exit $? ;
 
-if [ -r ${ENV_PATH}/CMSSW_10_6_31/src ] ; then
-  echo "CMSSW_10_6_31 exists"
-  cd ${ENV_PATH}/CMSSW_10_6_31/src
+if [ -r ${ENV_PATH}/CMSSW_10_6_31_patch1/src ] ; then
+  echo "CMSSW_10_6_31_patch1 exists"
+  cd ${ENV_PATH}/CMSSW_10_6_31_patch1/src
   eval `scramv1 runtime -sh` # the same as cmsenv
   cd -
 else
-  echo "CMSSW_10_6_31 does not exist"
+  echo "CMSSW_10_6_31_patch1 does not exist"
   exit 1
 fi
 

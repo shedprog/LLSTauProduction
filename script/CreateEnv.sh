@@ -54,19 +54,20 @@ cd ${ENV_PATH}/CMSSW_10_6_31_patch1/src
 # Step 3: Copy fragment-file
 source ${ABS_PATH}/CrossSection.sh
 mkdir -p ${ENV_PATH}/CMSSW_10_6_31_patch1/src/Configuration/GenProduction/python
-STAU_MASS_POINTS=(100 250 400) #GeV
-#STAU_MASS_POINTS=(250) #GeV
+#STAU_MASS_POINTS=(100 250 400) #GeV
+STAU_MASS_POINTS=(250) #GeV
 LSP_MASS_POINTS=(1) #GeV
-CTAU_POINTS=(100) #mm
+CTAU_POINTS=(0.01) #mm
 for MASS in ${STAU_MASS_POINTS[@]}; do
 for LSP in ${LSP_MASS_POINTS[@]}; do
 for CTAU in ${CTAU_POINTS[@]}; do
+  CTAU_FMT=$(sed "s/\./p/g" <<< $CTAU)
   #set -e; XSEC=$(GET_XSEC $MASS); set +e
   #echo "Create fragment mstau:${MASS}, mlsp:${LSP}, ctau:${CTAU}mm, XSEC: ${XSEC}"
   echo "Create fragment mstau:${MASS}, mlsp:${LSP}, ctau:${CTAU}mm"
   #sed "s/STAU_MASS_XXX/$MASS/" ${OUTDIR}/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stauXXX_lspXXX_ctauXXXmm.py | sed "s/LSP_MASS_XXX/$LSP/" | sed "s/XSEC_XXX/$XSEC/" | sed "s/CTAU_XXX/$CTAU/" > ${ENV_PATH}/CMSSW_10_6_31_patch1/src/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py
-  sed "s/STAU_MASS_XXX/$MASS/" ${OUTDIR}/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stauXXX_lspXXX_ctauXXXmm.py | sed "s/LSP_MASS_XXX/$LSP/" | sed "s/CTAU_XXX/$CTAU/" > ${ENV_PATH}/CMSSW_10_6_31_patch1/src/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py
-  [ -s ${ENV_PATH}/CMSSW_10_6_31_patch1/src/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py ] || exit $?;
+  sed "s/STAU_MASS_XXX/$MASS/" ${OUTDIR}/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stauXXX_lspXXX_ctauXXXmm.py | sed "s/LSP_MASS_XXX/$LSP/" | sed "s/CTAU_XXX/$CTAU/" | sed "s/CTAU_FMT_XXX/$CTAU_FMT/" > ${ENV_PATH}/CMSSW_10_6_31_patch1/src/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU_FMT}mm.py
+  [ -s ${ENV_PATH}/CMSSW_10_6_31_patch1/src/Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU_FMT}mm.py ] || exit $?;
 done
 done
 done

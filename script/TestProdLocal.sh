@@ -2,6 +2,9 @@
 
 # ENV_PATH=/afs/cern.ch/user/m/myshched/STauGENProduction
 
+#  This file should be under python
+CFG_GENSIM=$1
+
 ABS_PATH="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 OUTDIR=${ABS_PATH}/..
 
@@ -21,7 +24,7 @@ else
   exit 1
 fi
 
-cmsRun -e -j SUS-RunIISummer20UL18wmLHEGEN_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18wmLHEGEN-stau100_lsp1_ctau100mm_cfg.py || exit $? ;
+cmsRun -e -j SUS-RunIISummer20UL18wmLHEGEN_report.xml ${ABS_PATH}/../python/$CFG_GENSIM || exit $? ;
 
 cmsRun -e -j SUS-RunIISummer20UL18DIGIPremix_report.xml ${ABS_PATH}/../python/SUS-RunIISummer20UL18DIGIPremix_cfg.py || exit $? ;
 

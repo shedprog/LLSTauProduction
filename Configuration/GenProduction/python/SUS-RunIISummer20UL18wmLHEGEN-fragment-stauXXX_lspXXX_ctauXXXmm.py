@@ -5,8 +5,9 @@ MASS_LSP = LSP_MASS_XXX  # GeV
 # https://twiki.cern.ch/twiki/bin/view/LHCPhysics/SUSYCrossSections13TeVslepslep#NLO_NLL_any_single_generation_su
 #CROSS_SECTION = XSEC_XXX # pb
 CTAU0_POINT = CTAU_XXX # mm
+CTAU0_FMT = "CTAU_FMT_XXX"
 PROCESS_FILE = 'SimG4Core/CustomPhysics/data/RhadronProcessList.txt'
-PARTICLE_FILE = ("data/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(MASS_POINT, MASS_LSP, CTAU0_POINT))
+PARTICLE_FILE = ("data/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt".format(MASS_POINT, MASS_LSP, CTAU0_FMT))
 USE_REGGE = False
 GRIDPACK =  '/cvmfs/cms.cern.ch/phys_generator/gridpacks/slc6_amd64_gcc481/13TeV/madgraph/V5_2.4.2/sus_sms/SMS-TStauStau/v1/SMS-TStauStau_mStau-%s_slc6_amd64_gcc481_CMSSW_7_1_30_tarball.tar.xz' % (MASS_POINT)
 SLHA_TABLE="""
@@ -134,7 +135,7 @@ generator = cms.EDFilter("Pythia8GeneratorFilter",
      #crossSection = cms.untracked.double(CROSS_SECTION),
      comEnergy = cms.double(COM_ENERGY),
      GridpackPath =  cms.string(GRIDPACK),
-     ConfigDescription = cms.string('%s_%i_%i_%f' % (model, MASS_POINT, MASS_LSP, CTAU0_POINT)),
+     ConfigDescription = cms.string('%s_%i_%i_%s' % (model, MASS_POINT, MASS_LSP, CTAU0_FMT)),
      SLHATableForPythia8 = cms.string('%s' % slhatable),
      PythiaParameters = basePythiaParameters,
 )

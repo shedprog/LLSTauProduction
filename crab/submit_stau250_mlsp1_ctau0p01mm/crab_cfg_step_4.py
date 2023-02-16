@@ -9,7 +9,7 @@ from WMCore.Configuration import Configuration
 config = Configuration()
 
 config.section_("General")
-config.General.requestName = 'SUS-RunIISummer20UL18RECO-stau100_lsp1_ctau100mm_v6'
+config.General.requestName = 'SUS-RunIISummer20UL18RECO-stau250_lsp1_ctau0p01mm_v6'
 config.General.workArea = 'crab_projects'
 
 config.section_("JobType")
@@ -21,7 +21,7 @@ config.JobType.maxMemoryMB = 2500
 
 config.section_("Data")
 
-config.Data.inputDataset = '/SUS-RunIISummer20UL18GEN-stau100_lsp1_ctau100mm_v6/sobhatta-HLT-b403a189a2d057e62e59ed092120c7f4/USER'
+config.Data.inputDataset = '/SUS-RunIISummer20UL18GEN-stau250_lsp1_ctau0p01mm_v6/sobhatta-HLT-b403a189a2d057e62e59ed092120c7f4/USER'
 config.Data.inputDBS = 'phys03'
 
 config.Data.splitting = 'FileBased'

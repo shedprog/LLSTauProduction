@@ -1,7 +1,7 @@
 # TEMPLATE used for automatic script submission of multiple datasets
 
 import commands
-username = from CRABClient.UserUtilities import getUsernameFromCRIC
+from CRABClient.UserUtilities import getUsernameFromCRIC
 
 username = getUsernameFromCRIC()
 

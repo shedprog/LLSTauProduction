@@ -18,22 +18,24 @@ if [ -r ${ENV_PATH}/CMSSW_10_6_31_patch1/src ] ; then
   echo "CMSSW_10_6_31_patch1 exists"
   cd ${ENV_PATH}/CMSSW_10_6_31_patch1/src
   eval `scramv1 runtime -sh` # the same as cmsenv
+  scram b -j8
   cd -
 else
   echo "CMSSW_10_6_31_patch1 does not exist"
   exit 1
 fi
 
-STAU_MASS_POINTS=(100 250 400) #GeV
-#STAU_MASS_POINTS=(250) #GeV
+#STAU_MASS_POINTS=(100 250 400) #GeV
+STAU_MASS_POINTS=(250) #GeV
 LSP_MASS_POINTS=(1) #GeV
-CTAU_POINTS=(100) #mm
+CTAU_POINTS=(0.01) #mm
 
 for MASS in ${STAU_MASS_POINTS[@]}; do
 for LSP in ${LSP_MASS_POINTS[@]}; do
 for CTAU in ${CTAU_POINTS[@]}; do
 
-EVENTS=1500
+EVENTS=5
+CTAU=$(sed "s/\./p/g" <<< $CTAU)
 
 echo "Creating cmsDrive for GEN-SIM, Create for mstau:${MASS}, mlsp:${LSP}, ctau:${CTAU}mm"
 cmsDriver.py Configuration/GenProduction/python/SUS-RunIISummer20UL18wmLHEGEN-fragment-stau${MASS}_lsp${LSP}_ctau${CTAU}mm.py \

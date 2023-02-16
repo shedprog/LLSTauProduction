@@ -23,9 +23,10 @@ DECAY    1000015  %CTAU% # tau + ~chi_10
 
 hBarCinGeVmm = 1.973269788e-13
 
-mstau_list = [100,250,400]
-mlsp_list  = [1, 20]
-ctau0_list  = [100]
+#mstau_list = [100,250,400]
+mstau_list = [250]
+mlsp_list  = [1]#, 20]
+ctau0_list  = [0.01]
 
 grid = list(product(*[mstau_list, mlsp_list, ctau0_list]))
 print "create:",len(grid),"files"
@@ -36,8 +37,9 @@ for mstau, mlsp, ctau0 in grid:
     ParticleFile = baseParticleFile.replace('%MSTAU%','%e' % mstau)
     ParticleFile = ParticleFile.replace('%MLSP%','%e' % mlsp)
     ParticleFile = ParticleFile.replace('%CTAU%','%e' % ctau)
+    ctau0_fmt = str(ctau0).replace(".", "p")
     f = open(directory_out + ("/particles_stau_mstau{}GeV_mlsp{}GeV_ctau{}mm.txt"
-        .format(mstau,mlsp, ctau0)), "w")
+        .format(mstau,mlsp, ctau0_fmt)), "w")
     f.write(ParticleFile)
     f.close()
 

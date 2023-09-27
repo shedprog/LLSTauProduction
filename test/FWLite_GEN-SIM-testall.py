@@ -231,6 +231,13 @@ def vertex_diff(files, dir_out):
     legend.AddEntry(tau_gen, "gen-part (tau)", "p")
     legend.AddEntry(all_tgraph, "gen-part (all)", "p")
     legend.Draw("same")
+
+    t = ROOT.TPaveText(.5,.4,.95,.78,"NDC")
+    t.AddText("All point should be near the zero over the value in abs(diff) (y-axis).")
+    t.AddText("Location of the points on the besector should be suspitious,")
+    t.AddText("cooresponding would mean that for any gen-level vertex (x,y,z)")
+    t.AddText("the sim-level vertex is (0,0,0).")
+    t.Draw("same")
     
     c.Print(dir_out + "/vertex_gen_diff.png")
 
